@@ -112,8 +112,8 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  <Link href="/contact">
-                    Get Started <ArrowRight className="w-5 h-5 ml-2" />
+                  <Link href="/blog">
+                    Read our blog
                   </Link>
                 </Button>
                 <Button
