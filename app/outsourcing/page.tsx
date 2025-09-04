@@ -10,6 +10,7 @@ import {
   Users,
   CheckCircle,
   ArrowRight,
+  ArrowDown,
   TrendingUp,
   FileText,
   Calculator,
@@ -114,18 +115,10 @@ export default function OutsourcingPage() {
                 you focus on growing your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  <Link href="/contact">
-                    Get Started <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                >
-                  <Link href="#services">Our Services</Link>
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                  <span className="flex items-center">
+                    Start Outsourcing <ArrowDown className="w-5 h-5 ml-2" />
+                  </span>
                 </Button>
               </div>
             </motion.div>
@@ -137,7 +130,7 @@ export default function OutsourcingPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <img
-                src="/hr-outsourcing-team-working.png"
+                src="/outsourcing.jpg"
                 alt="HR outsourcing team at work"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
