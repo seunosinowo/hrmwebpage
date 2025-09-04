@@ -4,9 +4,6 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { Calendar, User, ArrowRight, Clock } from "lucide-react"
 import Link from "next/link"
 
@@ -92,46 +89,54 @@ const categories = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
+      <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/50 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">HR Insights & Resources</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-              Stay Ahead with <span className="text-accent">HR Insights</span>
-            </h1>
-            <p className="text-xl text-white/90 mb-8 text-pretty">
-              Expert insights, industry trends, and practical advice to help you navigate the evolving world of human
-              resources and organizational development.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                <Link href="#featured">
-                  Read Latest Posts <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-              >
-                <Link href="/contact">Subscribe to Newsletter</Link>
-              </Button>
-            </div>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">HR Insights & Resources</Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
+                Stay Ahead with <span className="text-accent">HR Insights</span>
+              </h1>
+              <p className="text-xl text-white/90 mb-8 text-pretty">
+                Expert insights, industry trends, and practical advice to help you navigate the evolving world of human
+                resources and organizational development.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                  <Link href="#featured">
+                    Read Latest Posts <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                >
+                  <Link href="#categories">Explore Categories</Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img
+                src="/blog-digital-transformation-hr.png.jpg"
+                alt="HR insights and digital transformation"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -325,9 +330,6 @@ export default function BlogPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

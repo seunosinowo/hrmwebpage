@@ -4,9 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
+import Link from "next/link"
 import {
   GraduationCap,
   BarChart3,
@@ -18,8 +16,8 @@ import {
   Star,
   Clock,
   Globe,
+  Monitor,
 } from "lucide-react"
-import Link from "next/link"
 
 const trainingPrograms = [
   {
@@ -53,8 +51,25 @@ const trainingPrograms = [
       "Predictive modeling",
       "Data visualization tools",
     ],
-    href: "https://www.aihr.com/human-resources-certifications/",
+    href: "https://www.aihr.com/hr-analytics/",
     color: "bg-accent",
+  },
+  {
+    icon: Monitor,
+    title: "Digital HR",
+    description: "Master digital HR strategies, technology implementation, and employee experience in the digital age.",
+    duration: "4-6 months",
+    level: "Intermediate",
+    rating: 4.8,
+    students: "1,200+",
+    features: [
+      "Digital HR strategy",
+      "HR technology implementation",
+      "Employee digital experience",
+      "Data privacy and compliance",
+    ],
+    href: "https://www.aihr.com/digital-hr/",
+    color: "bg-primary",
   },
   {
     icon: Users,
@@ -65,8 +80,8 @@ const trainingPrograms = [
     rating: 4.9,
     students: "2,100+",
     features: ["Strategic HR alignment", "Stakeholder management", "Change management", "Business acumen development"],
-    href: "https://www.aihr.com/human-resources-certifications/",
-    color: "bg-primary",
+    href: "https://www.aihr.com/business-partnering/",
+    color: "bg-accent",
   },
   {
     icon: BookOpen,
@@ -77,7 +92,7 @@ const trainingPrograms = [
     rating: 4.7,
     students: "5,000+",
     features: ["Monthly webinars", "Resource library access", "Community networking", "Regular updates"],
-    href: "https://www.aihr.com/human-resources-certifications/",
+    href: "https://www.aihr.com/hr-essentials/",
     color: "bg-accent",
   },
   {
@@ -89,7 +104,7 @@ const trainingPrograms = [
     rating: 5.0,
     students: "1,200+",
     features: ["All courses included", "Priority support", "Exclusive masterclasses", "Certification pathways"],
-    href: "https://www.aihr.com/human-resources-certifications/",
+    href: "https://www.aihr.com/package-deals/",
     color: "bg-primary",
   },
 ]
@@ -120,8 +135,6 @@ const benefits = [
 export default function TrainingPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -136,32 +149,33 @@ export default function TrainingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">AIHR Certified Programs</Badge>
+            <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">AIHR Programs</Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
               Advance Your HR Career with <span className="text-accent">World-Class Training</span>
             </h1>
             <p className="text-xl text-white/90 mb-8 text-pretty">
               Join thousands of HR professionals who have transformed their careers through our comprehensive training
-              and certification programs powered by AIHR.
+              and certification programs in collaboration with AIHR.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                <a
-                  href="https://www.aihr.com/human-resources-certifications/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Explore All Programs <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+              <a
+                href="https://www.aihr.com/human-resources-certifications/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a href="#programs">View Programs</a>
-              </Button>
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                  Explore All Programs <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </a>
+              <Link href="#programs">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                >
+                  View Programs
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -181,7 +195,7 @@ export default function TrainingPage() {
               Why Choose Our Training Programs?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Our partnership with AIHR ensures you receive the highest quality HR education and certification.
+              Our collaboration with AIHR ensures you receive the highest quality HR education and certification.
             </p>
           </motion.div>
 
@@ -266,14 +280,13 @@ export default function TrainingPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button
-                      asChild
-                      className="w-full bg-primary hover:bg-primary/90 group-hover:bg-accent group-hover:text-white transition-colors"
-                    >
-                      <a href={program.href} target="_blank" rel="noopener noreferrer">
+                    <a href={program.href} target="_blank" rel="noopener noreferrer">
+                      <Button
+                        className="w-full bg-primary hover:bg-primary/90 group-hover:bg-accent group-hover:text-white transition-colors"
+                      >
                         Enroll Now <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                    </Button>
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -296,25 +309,21 @@ export default function TrainingPage() {
               Ready to Transform Your HR Career?
             </h2>
             <p className="text-xl text-white/90 mb-8 text-pretty">
-              Join thousands of HR professionals who have advanced their careers through our AIHR certified programs.
+              Join thousands of HR professionals who have advanced their careers through our AIHR programs.
               Start your journey today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                <a
-                  href="https://www.aihr.com/human-resources-certifications/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <a
+                href="https://www.aihr.com/human-resources-certifications/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
                   Start Learning Today <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
+                </Button>
+              </a>
               <Link href="/contact">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                >
+                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary bg-transparent">
                   Contact Us
                 </Button>
               </Link>
@@ -322,9 +331,6 @@ export default function TrainingPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

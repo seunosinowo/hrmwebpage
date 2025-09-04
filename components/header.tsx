@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -15,7 +15,8 @@ const navigationItems = [
     submenu: [
       { name: "Certificate Programs", href: "/training/certificate-programs" },
       { name: "People Analytics", href: "/training/people-analytics" },
-      { name: "Business Partnering", href: "/training/business-partnering" },
+      { name: "Digital HR", href: "/training/digital-hr" },
+      { name: "Business Partnering", href: "/training/business-partering" },
       { name: "HR Essentials Membership", href: "/training/hr-essentials" },
       { name: "Full Academy Access", href: "/training/full-academy" },
     ],
@@ -29,6 +30,21 @@ const navigationItems = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+  const [isMobileSubmenuOpen, setIsMobileSubmenuOpen] = useState<string | null>(null)
+  const submenuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
+        setActiveSubmenu(null)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <motion.header
@@ -84,15 +100,16 @@ export function Header() {
 
           <nav className="hidden md:flex items-center space-x-1">
             {navigationItems.map((item) => (
-              <div key={item.name} className="relative group">
+              <div key={item.name} className="relative group" ref={submenuRef}>
                 {item.hasSubmenu ? (
                   <div
                     className="flex items-center space-x-1 text-white/90 hover:text-white transition-all duration-300 cursor-pointer py-2 px-4 rounded-xl hover:bg-white/5"
                     onMouseEnter={() => setActiveSubmenu(item.name)}
                     onMouseLeave={() => setActiveSubmenu(null)}
+                    onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
                   >
                     <span className="font-medium text-sm">{item.name}</span>
-                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeSubmenu === item.name ? "rotate-180" : ""}`} />
 
                     <AnimatePresence>
                       {activeSubmenu === item.name && (
@@ -113,6 +130,7 @@ export function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
+                              prefetch={true}
                               className="block px-4 py-3 text-foreground hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 transition-all duration-200 border-l-4 border-transparent hover:border-accent group/item"
                             >
                               <div className="font-medium text-sm flex items-center">
@@ -121,7 +139,7 @@ export function Header() {
                                   <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                 </svg>
                               </div>
-                              <div className="text-xs text-muted-foreground mt-1">Powered by AIHR</div>
+                              <div className="text-xs text-muted-foreground mt-1">In collaboration with AIHR</div>
                             </Link>
                           ))}
                         </motion.div>
@@ -131,6 +149,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
+                    prefetch={true}
                     className="text-white/90 hover:text-white transition-all duration-300 font-medium text-sm py-2 px-4 rounded-xl hover:bg-white/5"
                   >
                     {item.name}
@@ -141,7 +160,7 @@ export function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Link href="/training">
+            <Link href="/training" prefetch={true}>
               <Button className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                 <Award className="w-4 h-4 mr-2" />
                 <span>Get Certified</span>
@@ -157,7 +176,12 @@ export function Header() {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                setIsOpen(!isOpen)
+                if (isOpen) {
+                  setIsMobileSubmenuOpen(null)
+                }
+              }}
               className="text-white hover:text-accent hover:bg-white/10 rounded-xl p-2 h-10 w-10"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -182,15 +206,15 @@ export function Header() {
                       <div>
                         <button
                           className="w-full text-left px-4 py-3 text-white hover:text-accent transition-colors flex items-center justify-between rounded-xl hover:bg-white/5"
-                          onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
+                          onClick={() => setIsMobileSubmenuOpen(isMobileSubmenuOpen === item.name ? null : item.name)}
                         >
                           <span className="font-medium text-sm">{item.name}</span>
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform ${activeSubmenu === item.name ? "rotate-180" : ""}`}
+                            className={`w-4 h-4 transition-transform ${isMobileSubmenuOpen === item.name ? "rotate-180" : ""}`}
                           />
                         </button>
                         <AnimatePresence>
-                          {activeSubmenu === item.name && (
+                          {isMobileSubmenuOpen === item.name && (
                             <motion.div
                               className="pl-6 space-y-1 mt-1"
                               initial={{ opacity: 0, height: 0 }}
@@ -202,8 +226,12 @@ export function Header() {
                                 <Link
                                   key={subItem.name}
                                   href={subItem.href}
+                                  prefetch={true}
                                   className="block px-4 py-2.5 text-white/80 hover:text-accent transition-colors rounded-lg hover:bg-white/5"
-                                  onClick={() => setIsOpen(false)}
+                                  onClick={() => {
+                                    setIsOpen(false)
+                                    setIsMobileSubmenuOpen(null)
+                                  }}
                                 >
                                   <div className="font-medium text-sm flex items-center">
                                     {subItem.name}
@@ -211,7 +239,7 @@ export function Header() {
                                       <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                   </div>
-                                  <div className="text-xs text-white/60">AIHR Partnership</div>
+                                  <div className="text-xs text-white/60">In collaboration with AIHR</div>
                                 </Link>
                               ))}
                             </motion.div>
@@ -221,6 +249,7 @@ export function Header() {
                     ) : (
                       <Link
                         href={item.href}
+                        prefetch={true}
                         className="block px-4 py-3 text-white hover:text-accent transition-colors rounded-xl hover:bg-white/5 font-medium text-sm"
                         onClick={() => setIsOpen(false)}
                       >
@@ -230,7 +259,7 @@ export function Header() {
                   </div>
                 ))}
                 <div className="pt-4 px-2">
-                  <Link href="/training" className="block">
+                  <Link href="/training" prefetch={true}>
                     <Button className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white font-semibold rounded-xl py-3">
                       <Award className="w-4 h-4 mr-2" />
                       <span>Get Certified</span>

@@ -4,9 +4,6 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
 import {
   Users,
   BarChart3,
@@ -87,10 +84,8 @@ const benefits = [
 export default function HRSoftwarePage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
+      <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/50 rounded-full blur-3xl"></div>
@@ -108,18 +103,10 @@ export default function HRSoftwarePage() {
                 organizational success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  <Link href="/contact">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                  <span className="flex items-center">
                     Get Started <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                >
-                  <Link href="#features">View Features</Link>
+                  </span>
                 </Button>
               </div>
             </motion.div>
@@ -131,7 +118,7 @@ export default function HRSoftwarePage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <img
-                src="/hr-software-dashboard-interface.png"
+                src="/hr-software.jpg"
                 alt="HR Software Dashboard"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
@@ -173,6 +160,55 @@ export default function HRSoftwarePage() {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">{benefit.title}</h3>
                 <p className="text-muted-foreground text-pretty">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Offers Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+              Our Offers
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Explore our comprehensive range of HR services and solutions.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              "Recruitment",
+              "HR Information System",
+              "Employee Self Service",
+              "Performance Management",
+              "Payroll Management",
+              "Time & Attendance Management",
+              "Leave Management",
+              "Employee Benefits (Loans & Salary Advance)",
+              "Employee Onboarding",
+              "Training and Development",
+              "Discipline Management",
+              "Retirement & Exit Management",
+              "Reports & Analytics"
+            ].map((offer, index) => (
+              <motion.div
+                key={offer}
+                className="text-center p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-semibold text-foreground mb-2">{offer}</h3>
               </motion.div>
             ))}
           </div>
@@ -232,7 +268,7 @@ export default function HRSoftwarePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -248,27 +284,16 @@ export default function HRSoftwarePage() {
               Join hundreds of companies that have transformed their HR processes with our comprehensive software
               solution.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                <Link href="/contact">
-                  Request Demo <ArrowRight className="w-5 h-5 ml-2" />
+                <Link href="/contact" className="flex items-center">
+                  Contact us <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-              >
-                <Link href="/about">Learn More</Link>
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

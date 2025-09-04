@@ -6,11 +6,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
-import { Mail, Phone, MapPin, Clock, Send, Award, CheckCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Send, Award, CheckCircle, ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
+import Link from "next/link"
 
 const contactInfo = [
   {
@@ -39,11 +38,47 @@ const contactInfo = [
   },
 ]
 
+// Optimized Image Component with Error Handling
+function OptimizedImage({
+  src,
+  alt,
+  width,
+  height,
+  className = ""
+}: {
+  src: string
+  alt: string
+  width: number
+  height: number
+  className?: string
+}) {
+  const [hasError, setHasError] = useState(false)
+
+  if (hasError) {
+    // Show default logo placeholder
+    return (
+      <div className={`${className} bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center`} style={{ width, height }}>
+        <Award className="w-8 h-8 text-white" />
+      </div>
+    )
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      onError={() => setHasError(true)}
+      loading="lazy"
+    />
+  )
+}
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Official AIHR Certified Partner section */}
       <section className="py-8 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-b border-border/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,16 +93,16 @@ export default function ContactPage() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <div className="flex items-center gap-3">
-                <Image
-                  src="/aihr-academy-logo-white.png"
+                <OptimizedImage
+                  src="/aihr-academy-logo-white.png.JPG"
                   alt="AIHR Academy"
                   width={60}
                   height={60}
                   className="bg-primary rounded-lg p-2"
                 />
                 <div className="w-px h-12 bg-border"></div>
-                <Image
-                  src="/hrm-office-logo-white.png"
+                <OptimizedImage
+                  src="/hrm-office-logo-white.png.jpg"
                   alt="HRM Office"
                   width={60}
                   height={60}
@@ -93,33 +128,59 @@ export default function ContactPage() {
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
+      <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/50 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">Get In Touch</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-              Let's Transform Your <span className="text-accent">HR Operations</span> Together
-            </h1>
-            <p className="text-xl text-white/90 mb-8 text-pretty">
-              Ready to take your HR to the next level? Contact our team of experts to discuss your needs and discover
-              how we can help your organization thrive.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">Get In Touch</Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
+                Let's Transform Your <span className="text-accent">HR Operations</span> Together
+              </h1>
+              <p className="text-xl text-white/90 mb-8 text-pretty">
+                Ready to take your HR to the next level? Contact our team of experts to discuss your needs and discover
+                how we can help your organization thrive.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="#contact-form">
+                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                    Send Message <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <Link href="#contact-info">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                  >
+                    Contact Info
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img
+                src="/business-partnering-strategic-meeting.png.jpg"
+                alt="HR consultation and strategic meeting"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Contact Info */}
-      <section className="py-20 bg-background">
+      <section id="contact-info" className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {contactInfo.map((info, index) => (
@@ -149,7 +210,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-muted/50">
+      <section id="contact-form" className="py-20 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
@@ -282,9 +343,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

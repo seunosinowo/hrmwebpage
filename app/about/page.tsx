@@ -4,11 +4,9 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
-import { Users, Target, Award, Heart, ArrowRight, CheckCircle, Briefcase, Lightbulb, Flame } from "lucide-react"
+import { Users, Target, Award, Heart, ArrowRight, CheckCircle, Briefcase, Lightbulb, Flame, User } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 const values = [
   {
@@ -50,64 +48,98 @@ const values = [
 
 const team = [
   {
-    name: "Sarah Johnson",
-    role: "Chief Executive Officer",
-    image: "/team-ceo-sarah-johnson.png",
-    description: "20+ years of HR leadership experience across Fortune 500 companies.",
-  },
-  {
-    name: "Michael Chen",
-    role: "Head of Training & Development",
-    image: "/team-head-training-michael-chen.png",
-    description: "AIHR certified expert with extensive experience in HR education and certification.",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Director of Recruitment",
-    image: "/team-director-recruitment-emily-rodriguez.png",
-    description: "Specialist in executive search and talent acquisition with 15+ years experience.",
-  },
-  {
-    name: "David Thompson",
-    role: "Head of HR Technology",
-    image: "/team-head-technology-david-thompson.png",
-    description: "Technology leader focused on innovative HR software solutions and digital transformation.",
+    name: "Fredrick Okeagu (MSc, ACIPM, HRPL, CMC, C-KPI)",
+    role: "Managing Partner",
+    image: "/fred.jpg",
+    description: "Experienced HR professional with extensive expertise in human resource management and strategic leadership.",
   },
 ]
+
+// Optimized Image Component with Error Handling
+function OptimizedAvatar({
+  src,
+  alt,
+  name,
+  className = "w-32 h-32 rounded-full mx-auto object-cover relative z-10 border-4 border-background shadow-lg"
+}: {
+  src: string
+  alt: string
+  name: string
+  className?: string
+}) {
+  const [hasError, setHasError] = useState(false)
+
+  if (hasError) {
+    // Show default avatar with initials
+    const initials = name.split(' ').map((n: string) => n[0]).join('').toUpperCase()
+    return (
+      <div className={`${className} bg-gradient-to-br from-primary to-accent flex items-center justify-center`}>
+        <span className="text-white font-bold text-2xl">{initials}</span>
+      </div>
+    )
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      onError={() => setHasError(true)}
+      loading="lazy"
+    />
+  )
+}
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary/95 via-primary to-primary/90 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-10"></div>
-        <div className="absolute top-0 left-0 right-0 h-72 bg-gradient-to-b from-background/5 to-transparent"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              <Badge className="mb-6 bg-accent/20 text-accent border-accent/30 backdrop-blur-sm px-4 py-1.5">About Us</Badge>
-            </motion.div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance tracking-tight">
-              About Us
-            </h1>
-            <p className="text-xl text-white/90 mb-10 text-pretty max-w-3xl mx-auto leading-relaxed">
-              We consistently deliver outstanding results in Recruitment and On-boarding, Human Capital Development, Performance Management, Payroll Administration, Organisational Development and Human Resource Outsourcing in a technology enabled environment.
-            </p>
-          </motion.div>
+      <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/50 rounded-full blur-3xl"></div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full flex justify-center">
-          <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">About HRM Office</Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
+                Transforming HR <span className="text-accent">Excellence</span> Together
+              </h1>
+              <p className="text-xl text-white/90 mb-8 text-pretty">
+                We consistently deliver outstanding results in Recruitment and On-boarding, Human Capital Development, Performance Management, Payroll Administration, Organisational Development and Human Resource Outsourcing in a technology enabled environment.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                  <Link href="/contact">
+                    Get Started <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                >
+                  <Link href="#mission">Our Mission</Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img
+                src="/Hero_team.jpg"
+                alt="HRM Office team collaboration"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -224,14 +256,14 @@ export default function AboutPage() {
           >
             <Badge variant="outline" className="mb-4 text-primary border-primary/30 bg-primary/10">Our Team</Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance tracking-tight">
-              Leadership Team
+              Meet the Managing Partner
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-              Experienced professionals dedicated to delivering exceptional HR solutions and driving your success.
+              Meet our Managing Partner, dedicated to delivering exceptional HR solutions and driving your success.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex justify-center">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -239,16 +271,16 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="h-full"
+                className="w-full max-w-sm"
               >
                 <Card className="h-full text-center border-0 bg-transparent shadow-none group">
                   <CardHeader className="pb-4">
                     <div className="relative mx-auto mb-5 w-32 h-32">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full transform group-hover:scale-110 transition-transform duration-500"></div>
-                      <img
-                        src={member.image || "/placeholder.svg"}
+                      <OptimizedAvatar
+                        src={member.image}
                         alt={member.name}
-                        className="w-32 h-32 rounded-full mx-auto object-cover relative z-10 border-4 border-background shadow-lg"
+                        name={member.name}
                       />
                     </div>
                     <CardTitle className="text-lg text-foreground tracking-tight">{member.name}</CardTitle>
@@ -263,9 +295,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

@@ -4,9 +4,6 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
 import {
   Shield,
   DollarSign,
@@ -98,10 +95,8 @@ const industries = [
 export default function OutsourcingPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
+      <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/50 rounded-full blur-3xl"></div>
@@ -132,22 +127,6 @@ export default function OutsourcingPage() {
                 >
                   <Link href="#services">Our Services</Link>
                 </Button>
-              </div>
-
-              {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
-                <div>
-                  <div className="text-2xl font-bold text-accent mb-1">40%</div>
-                  <div className="text-white/80 text-sm">Cost Reduction</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent mb-1">95%</div>
-                  <div className="text-white/80 text-sm">Efficiency Gain</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent mb-1">24/7</div>
-                  <div className="text-white/80 text-sm">Support</div>
-                </div>
               </div>
             </motion.div>
 
@@ -339,9 +318,6 @@ export default function OutsourcingPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

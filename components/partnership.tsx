@@ -79,7 +79,7 @@ export function Partnership() {
           >
             <div className="relative">
               <img
-                src="/aihr-academy-logo-white.png"
+                src="/aihr-academy-logo-white.png.JPG"
                 alt="AIHR Academy Partnership"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />

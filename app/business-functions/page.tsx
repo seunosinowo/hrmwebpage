@@ -4,9 +4,6 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { Users, Shield, ArrowRight, CheckCircle, BarChart3, Settings, FileText, Target } from "lucide-react"
 import Link from "next/link"
 
@@ -111,8 +108,6 @@ const industries = [
 export default function BusinessFunctionsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -308,9 +303,6 @@ export default function BusinessFunctionsPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Star, Quote } from "lucide-react"
+import { Star, Quote, User } from "lucide-react"
+import { useState } from "react"
 
 const testimonials = [
   {
@@ -32,6 +33,41 @@ const testimonials = [
     rating: 5,
   },
 ]
+
+// Optimized Image Component with Error Handling
+function OptimizedAvatar({
+  src,
+  alt,
+  name,
+  className = "w-12 h-12 rounded-full object-cover mr-4"
+}: {
+  src: string
+  alt: string
+  name: string
+  className?: string
+}) {
+  const [hasError, setHasError] = useState(false)
+
+  if (hasError) {
+    // Show default avatar with initials
+    const initials = name.split(' ').map((n: string) => n[0]).join('').toUpperCase()
+    return (
+      <div className={`${className} bg-gradient-to-br from-primary to-accent flex items-center justify-center`}>
+        <span className="text-white font-semibold text-sm">{initials}</span>
+      </div>
+    )
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      onError={() => setHasError(true)}
+      loading="lazy"
+    />
+  )
+}
 
 export function Testimonials() {
   return (
@@ -72,10 +108,10 @@ export function Testimonials() {
               <p className="text-muted-foreground mb-6 text-pretty leading-relaxed">"{testimonial.content}"</p>
 
               <div className="flex items-center">
-                <img
-                  src={testimonial.image || "/placeholder.svg"}
+                <OptimizedAvatar
+                  src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
+                  name={testimonial.name}
                 />
                 <div>
                   <div className="font-semibold text-foreground">{testimonial.name}</div>

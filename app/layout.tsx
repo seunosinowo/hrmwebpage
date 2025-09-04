@@ -2,6 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Suspense } from "react"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { WhatsAppFloat } from "@/components/whatsapp-float"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -36,7 +39,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <Header />
+        <Suspense fallback={null}>
+          <main>{children}</main>
+        </Suspense>
+        <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   )
