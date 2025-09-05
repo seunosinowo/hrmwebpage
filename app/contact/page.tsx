@@ -86,9 +86,11 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/business-partnering-strategic-meeting.png.jpg"
                 alt="HR consultation and strategic meeting"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>

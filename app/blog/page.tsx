@@ -68,9 +68,11 @@ export default function BlogPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/blog-digital-transformation-hr.png.jpg"
                 alt="HR insights and digital transformation"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -171,9 +173,11 @@ export default function BlogPage() {
                 >
                   <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 group border-0 shadow-sm">
                     <div className="relative overflow-hidden">
-                      <img
+                      <Image
                         src={post.image || "/placeholder.svg"}
                         alt={post.title}
+                        width={400}
+                        height={192}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>

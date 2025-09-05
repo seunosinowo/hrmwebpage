@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Users, Search, Target, CheckCircle, ArrowRight, ArrowDown, Clock, UserCheck, FileText, Megaphone, ClipboardCheck, BarChart3, Presentation } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const staffingServices = [
   {
@@ -166,9 +167,11 @@ export default function RecruitmentPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/hr-business-partner-presenting-to-executives.png.jpg"
                 alt="Professional recruitment interview"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -187,7 +190,7 @@ export default function RecruitmentPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Let's Take Care of Staffing in Your Workplace
+              Let&apos;s Take Care of Staffing in Your Workplace
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>

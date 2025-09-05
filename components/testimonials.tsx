@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Star, Quote, User } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 const testimonials = [
   {
@@ -59,12 +60,13 @@ function OptimizedAvatar({
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
+      width={48}
+      height={48}
       className={className}
       onError={() => setHasError(true)}
-      loading="lazy"
     />
   )
 }

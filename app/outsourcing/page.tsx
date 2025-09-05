@@ -28,6 +28,7 @@ import {
   Star
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const benefits = [
   {
@@ -137,9 +138,11 @@ export default function OutsourcingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/outsourcing.jpg"
                 alt="HR outsourcing team at work"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -316,9 +319,11 @@ export default function OutsourcingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img
+              <Image
                 src="/outsource2.jpg"
                 alt="HR team collaboration"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-xl"
               />
             </motion.div>
@@ -334,7 +339,7 @@ export default function OutsourcingPage() {
                 Strategic HR Partnership
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                We don't just handle administrative tasks—we become your strategic HR partner, aligning human resources with your business objectives for sustainable growth.
+                We don&apos;t just handle administrative tasks—we become your strategic HR partner, aligning human resources with your business objectives for sustainable growth.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">

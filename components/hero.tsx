@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Users, Star, Target } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export function Hero() {
@@ -135,10 +136,11 @@ export function Hero() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
+                <Image
                   src="/Hero_team.jpg"
                   alt="Professional HR team collaboration"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>

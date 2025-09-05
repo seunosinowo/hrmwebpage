@@ -18,6 +18,7 @@ import {
   FileText,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const softwareFeatures = [
   {
@@ -117,9 +118,11 @@ export default function HRSoftwarePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/hr-software.jpg"
                 alt="HR Software Dashboard"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>

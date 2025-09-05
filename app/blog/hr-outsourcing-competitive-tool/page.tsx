@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function HROutsourcingPage() {
   const post = {
@@ -64,9 +65,11 @@ export default function HROutsourcingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="relative mb-8">
-              <img
+              <Image
                 src={post.image}
                 alt={post.title}
+                width={800}
+                height={400}
                 className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg"
               />
             </div>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Award, CheckCircle, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 const benefits = [
   "Access to globally recognized HR certifications",
@@ -37,7 +38,7 @@ export function Partnership() {
             <p className="text-xl text-muted-foreground mb-8 text-pretty leading-relaxed">
               As an official AIHR Certified Partner, we bring world-class HR education and certification programs
               directly to Nigerian professionals. Our partnership ensures you receive the same high-quality training
-              that's trusted by HR leaders globally.
+              that&apos;s trusted by HR leaders globally.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -78,9 +79,11 @@ export function Partnership() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <img
+              <Image
                 src="/aihr-academy-logo-white.png.JPG"
                 alt="AIHR Academy Partnership"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
 

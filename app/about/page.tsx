@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Users, Target, Award, Heart, ArrowRight, CheckCircle, Briefcase, Lightbulb, Flame, User } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 
 const values = [
@@ -80,12 +81,13 @@ function OptimizedAvatar({
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
+      width={128}
+      height={128}
       className={className}
       onError={() => setHasError(true)}
-      loading="lazy"
     />
   )
 }
@@ -133,9 +135,11 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/Hero_team.jpg"
                 alt="HRM Office team collaboration"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -183,9 +187,11 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <Image
                   src="/aboutusTeam.jpg"
                   alt="HRM Office team collaboration"
+                  width={800}
+                  height={450}
                   className="w-full h-auto object-cover aspect-video"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>

@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Briefcase, Mail, Heart } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 // Commented out job openings as requested
 /*
@@ -96,9 +97,11 @@ export default function JobsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
+              <Image
                 src="/business-partnering-strategic-meeting.png.jpg"
                 alt="HRM Office team collaboration"
+                width={600}
+                height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -123,7 +126,7 @@ export default function JobsPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Join HRM Office?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Be part of a team that's shaping the future of HR services across Africa while advancing your own career.
+              Be part of a team that&apos;s shaping the future of HR services across Africa while advancing your own career.
             </p>
           </motion.div>
 
@@ -187,7 +190,7 @@ export default function JobsPage() {
             </div>
             <h3 className="text-2xl font-semibold text-foreground mb-2">No Current Openings</h3>
             <p className="text-muted-foreground max-w-md mx-auto mb-6">
-              We don't have any open positions at the moment. Please check back later or submit your resume for future opportunities.
+              We don&apos;t have any open positions at the moment. Please check back later or submit your resume for future opportunities.
             </p>
             <Button asChild variant="outline">
               <a href="#submit-resume">Submit Your Resume</a>
@@ -213,7 +216,7 @@ export default function JobsPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Interested in Working With Us?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Send your resume to our email and we'll keep it on file for future opportunities.
+              Send your resume to our email and we&apos;ll keep it on file for future opportunities.
             </p>
           </motion.div>
 
@@ -245,7 +248,7 @@ export default function JobsPage() {
                       hrmofficeltd@gmail.com
                     </a>
                     <p className="text-muted-foreground mt-4">
-                      We'll review your qualifications and contact you when suitable positions become available.
+                      We&apos;ll review your qualifications and contact you when suitable positions become available.
                     </p>
                   </div>
                   <Button asChild size="lg" className="w-full">
