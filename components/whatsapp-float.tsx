@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 
 export function WhatsAppFloat() {
-  const whatsappNumber = "+2349122063262"
+  const whatsappNumber = "+2347043071341"
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
   return (

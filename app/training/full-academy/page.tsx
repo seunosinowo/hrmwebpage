@@ -107,7 +107,7 @@ export default function FullAcademyPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8">
                   <a
-                    href="https://www.aihr.com/package-deals/"
+                    href="https://www.aihr.com/partner/hrmoffice/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center space-x-2"
@@ -118,7 +118,7 @@ export default function FullAcademyPage() {
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
                   <a
-                    href="https://www.aihr.com/package-deals/"
+                    href="https://www.aihr.com/partner/hrmoffice/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

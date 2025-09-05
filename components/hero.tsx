@@ -144,26 +144,27 @@ export function Hero() {
                 />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-              {/* Floating Card: Certified AIHR Partner (desktop only) */}
-              {!isMobile && (
-                <motion.div
-                  className="absolute -top-4 -left-4 bg-white rounded-2xl p-4 shadow-lg border border-white/20"
-                  initial={{ opacity: 0, scale: 0.8, x: -20 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                      <Users className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-primary">Certified AIHR Partner</div>
-                      <div className="text-xs text-muted-foreground">Official Partnership</div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
+              {/* Floating Card: Certified AIHR Partner (always visible) */}
+              <motion.div
+                className="absolute top-4 left-6 w-64 flex flex-col items-center"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <div className="text-center w-full mb-1 bg-white rounded-xl shadow-lg border border-white/20 p-1.5">
+                  <span className="font-medium text-base text-primary/90">Certified Partners with</span>
+                </div>
+                <div className="w-full flex justify-center mt-0">
+                  <Image
+                    src="/aihr.png"
+                    alt="AIHR Logo"
+                    width={200}
+                    height={70}
+                    className="object-contain"
+                  />
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

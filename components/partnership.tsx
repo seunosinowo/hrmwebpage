@@ -58,16 +58,16 @@ export function Partnership() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/training" className="inline-flex items-center gap-2">
+              <a
+                href="https://www.aihr.com/partner/hrmoffice/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
                   Explore Programs <ExternalLink className="w-4 h-4" />
                 </Button>
-              </Link>
-              <Link href="/about">
-                <Button variant="outline" size="lg">
-                  Learn About Partnership
-                </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
 
@@ -80,38 +80,26 @@ export function Partnership() {
           >
             <div className="relative">
               <Image
-                src="/aihr-academy-logo-white.png.JPG"
+                src="/aihr.png"
                 alt="AIHR Academy Partnership"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
-
+              {/* Official Partner badge: top of AIHR logo on mobile, top-right on desktop */}
               <motion.div
-                className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-lg"
+                className="absolute -top-6 right-1/2 translate-x-1/2 lg:right-6 lg:translate-x-0 bg-white rounded-xl p-2 lg:p-4 shadow-lg flex items-center gap-2 lg:gap-3"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                    <Award className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-primary">Official Partner</div>
-                    <div className="text-sm text-muted-foreground">Since 2022</div>
-                  </div>
+                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-accent rounded-lg flex items-center justify-center">
+                  <Award className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
                 </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute -bottom-6 -left-6 bg-primary rounded-xl p-4 shadow-lg text-white"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
-                <div className="text-2xl font-bold">5,000+</div>
-                <div className="text-sm opacity-90">Certified Professionals</div>
+                <div>
+                  <div className="font-semibold text-xs lg:text-sm text-primary">Official Partner</div>
+                  <div className="text-xs lg:text-sm text-muted-foreground">Since 2024</div>
+                </div>
               </motion.div>
             </div>
           </motion.div>

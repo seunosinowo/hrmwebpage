@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, Award, Sparkles } from "lucide-react"
@@ -47,7 +48,7 @@ export function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 bg-gradient-to-r from-primary via-primary to-primary/95 backdrop-blur-lg border-b border-accent/30 shadow-xl"
+      className="sticky top-0 z-50 bg-primary backdrop-blur-lg border-b border-accent/30 shadow-xl"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -84,15 +85,9 @@ export function Header() {
             whileHover={{ scale: 1.05 }} 
             transition={{ duration: 0.2 }}
           >
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-white to-white/90 rounded-xl flex items-center justify-center shadow-lg border border-white/20">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-inner">
-                  <div className="text-white font-bold text-lg">HR</div>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-xl tracking-tight">HRM Office</span>
-                <span className="text-accent text-xs font-medium tracking-wide">AIHR CERTIFIED PARTNER</span>
+            <Link href="/" className="flex items-center">
+              <div className="w-40 h-12 overflow-hidden relative">
+                <Image src="/hrm_white.png" alt="HRM Office Logo" fill className="object-contain w-full h-full" />
               </div>
             </Link>
           </motion.div>
@@ -159,7 +154,7 @@ export function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Link href="/training" prefetch={true}>
+            <Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                 <Award className="w-4 h-4 mr-2" />
                 <span>Get Certified</span>
@@ -258,7 +253,7 @@ export function Header() {
                   </div>
                 ))}
                 <div className="pt-4 px-2">
-                  <Link href="/training" prefetch={true}>
+                  <Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer">
                     <Button className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white font-semibold rounded-xl py-3">
                       <Award className="w-4 h-4 mr-2" />
                       <span>Get Certified</span>

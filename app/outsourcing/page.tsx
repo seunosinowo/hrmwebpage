@@ -25,7 +25,8 @@ import {
   Building,
   ShoppingBag,
   GraduationCap,
-  Star
+  Star,
+  Flame
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -66,6 +67,8 @@ const industries = [
   { name: "Education", icon: GraduationCap },
   { name: "Construction", icon: Building },
   { name: "Hospitality", icon: Star },
+  { name: "Oil and Gas", icon: Flame },
+  { name: "Transport and Logistics", icon: Clock },
 ]
 
 const processSteps = [
@@ -99,7 +102,7 @@ const stats = [
   { number: "200+", label: "Businesses Served" },
   { number: "40%", label: "Average Cost Reduction" },
   { number: "98%", label: "Client Satisfaction" },
-  { number: "15+", label: "Years Experience" },
+  { number: "8+", label: "Years Experience" },
 ]
 
 export default function OutsourcingPage() {

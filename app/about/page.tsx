@@ -49,7 +49,7 @@ const values = [
 
 const team = [
   {
-    name: "Fredrick Okeagu (MSc, ACIPM, HRPL, CMC, C-KPI)",
+    name: "Fredrick Okeagu (Ph.D in view, MSc, ACIPM, HRPL, CMC, C-KPI)",
     role: "Managing Partner",
     image: "/fred.jpg",
     description: "Experienced HR professional with extensive expertise in human resource management and strategic leadership.",
@@ -113,19 +113,20 @@ export default function AboutPage() {
                 We consistently deliver outstanding results in Recruitment and On-boarding, Human Capital Development, Performance Management, Payroll Administration, Organisational Development and Human Resource Outsourcing in a technology enabled environment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  <Link href="/blog">
+                <Link href="/blog">
+                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
                     Read our blog
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                >
-                  <Link href="#mission">Our Mission</Link>
-                </Button>
+                  </Button>
+                </Link>
+                <Link href="#mission">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                  >
+                    Our Mission
+                  </Button>
+                </Link>
               </div>
             </motion.div>
 
@@ -141,6 +142,8 @@ export default function AboutPage() {
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-2xl shadow-2xl"
+                priority
+                loading="eager"
               />
             </motion.div>
           </div>
@@ -193,6 +196,8 @@ export default function AboutPage() {
                   width={800}
                   height={450}
                   className="w-full h-auto object-cover aspect-video"
+                  priority
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
@@ -265,7 +270,7 @@ export default function AboutPage() {
               Meet the Managing Partner
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-              Meet our Managing Partner, dedicated to delivering exceptional HR solutions and driving your success.
+              Our team of dedicated HR professionals, delivering exceptional solutions and driving your success, is led by
             </p>
           </motion.div>
 
@@ -289,7 +294,19 @@ export default function AboutPage() {
                         name={member.name}
                       />
                     </div>
-                    <CardTitle className="text-lg text-foreground tracking-tight">{member.name}</CardTitle>
+                    <CardTitle className="text-lg text-foreground tracking-tight">
+                      {(() => {
+                        const mainName = "Fredrick Okeagu";
+                        const credentialsMatch = member.name.match(/\(([^)]+)\)/);
+                        const credentials = credentialsMatch ? credentialsMatch[0] : "";
+                        const rest = member.name.replace(mainName, "").replace(credentials, "").trim();
+                        return <>
+                          <span className="font-bold">{mainName} {credentials}</span>
+                          <br />
+                          <span className="font-normal">{rest}</span>
+                        </>;
+                      })()}
+                    </CardTitle>
                     <CardDescription className="text-accent font-medium mt-1">{member.role}</CardDescription>
                   </CardHeader>
                   <CardContent>

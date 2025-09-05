@@ -3,39 +3,39 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, Monitor, Users, Building, ArrowRight } from "lucide-react"
+import { GraduationCap, Monitor, Users, Building, ArrowRight, Target, BarChart3, BookOpen, Settings } from "lucide-react"
 import Link from "next/link"
 
 const services = [
   {
     icon: GraduationCap,
-    title: "Training & Certification",
-    description: "AIHR certified programs, people analytics, business partnering, and comprehensive HR education.",
-    features: ["Certificate Programs", "People Analytics", "Business Partnering", "HR Essentials"],
-    href: "/training",
+    title: "HR Certification Programs",
+    description: "Elevate your team's capabilities with our industry-recognized HR certification and training programs.",
+    features: ["Professional Certifications", "Leadership Development", "Skill Enhancement", "Compliance Training"],
+    href: "/training/certificate-programs",
     color: "bg-accent",
   },
   {
     icon: Monitor,
     title: "HR Software Solutions",
-    description: "Cutting-edge HR technology solutions to streamline your human resources operations.",
-    features: ["HRIS Systems", "Payroll Management", "Performance Tracking", "Analytics Dashboard"],
+    description: "Implement cutting-edge HR systems that streamline processes and provide valuable workforce insights.",
+    features: ["HRIS Implementation", "Automated Workflows", "Data Analytics", "Employee Self-Service"],
     href: "/hr-software",
     color: "bg-primary",
   },
   {
     icon: Users,
     title: "Recruitment Services",
-    description: "Expert recruitment and talent acquisition services to find the right people for your organization.",
-    features: ["Executive Search", "Bulk Hiring", "Talent Sourcing", "Interview Process"],
+    description: "Attract, identify, and secure top talent that aligns with your organizational culture and goals.",
+    features: ["Candidate Sourcing", "Employment Branding", "Selection Process", "Onboarding Integration"],
     href: "/recruitment",
     color: "bg-accent",
   },
   {
     icon: Building,
-    title: "HR Outsourcing",
-    description: "Complete HR outsourcing solutions to let you focus on your core business operations.",
-    features: ["Payroll Outsourcing", "Compliance Management", "Employee Relations", "HR Administration"],
+    title: "HR Outsourcing Support",
+    description: "Comprehensive HR management solutions that allow you to focus on core business objectives.",
+    features: ["Policy Development", "Compliance Management", "Employee Relations", "Performance Systems"],
     href: "/outsourcing",
     color: "bg-primary",
   },
@@ -54,11 +54,11 @@ export function Services() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            Comprehensive HR Solutions for Modern Businesses
+            Strategic HR Solutions for Organizational Excellence
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            From training and certification to complete HR outsourcing, we provide end-to-end solutions that help your
-            organization thrive in today's competitive landscape.
+            Our comprehensive suite of HR services is designed to optimize your human capital investment, ensure compliance, 
+            and drive sustainable business growth through people-focused strategies.
           </p>
         </motion.div>
 
@@ -72,7 +72,7 @@ export function Services() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300 group">
+              <Card className="h-full hover:shadow-lg transition-shadow duration-300 group border-0 shadow-sm">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
                     <div
@@ -100,7 +100,7 @@ export function Services() {
                       variant="outline"
                       className="w-full group-hover:bg-primary group-hover:text-white transition-colors bg-transparent"
                     >
-                      Learn More <ArrowRight className="w-4 h-4" />
+                      Explore <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
                 </CardContent>
@@ -108,35 +108,6 @@ export function Services() {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <motion.div
-          className="text-center bg-muted rounded-2xl p-8 md:p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-balance">
-            Ready to Transform Your HR Operations?
-          </h3>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
-            Join hundreds of companies that trust HRM Office for their human resources needs. Let's discuss how we can
-            help your organization grow.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Get Started Today
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button variant="outline" size="lg">
-                Learn About Us
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

@@ -150,14 +150,15 @@ export default function RecruitmentPage() {
                     Start Hiring <ArrowDown className="w-5 h-5 ml-2" />
                   </span>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                >
-                  <Link href="/contact">Contact</Link>
-                </Button>
+                <Link href="/contact" passHref legacyBehavior>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                  >
+                    Contact
+                  </Button>
+                </Link>
               </div>
             </motion.div>
 

@@ -38,38 +38,22 @@ export function CTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Link href="/training" className="inline-flex items-center gap-2">
+            <Link href="/about" className="inline-flex items-center gap-2">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                Start Your Certification <ArrowRight className="w-5 h-5" />
+                About us <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/blog">
               <Button
                 variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
               >
-                Schedule Consultation
+                Read our Blog
               </Button>
             </Link>
           </motion.div>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-8 justify-center items-center text-white/80"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-2">
-              <Phone className="w-5 h-5 text-accent" />
-              <span>+234 811 477 888</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-5 h-5 text-accent" />
-              <span>info@hrmoffice.com</span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
