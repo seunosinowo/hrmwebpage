@@ -6,37 +6,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Mail, Phone, MapPin, Clock, Send, Award, CheckCircle, ArrowRight } from "lucide-react"
+import { Send, Award, CheckCircle, ArrowRight, ArrowDown, BookOpen, Users, Building, Scale, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import Link from "next/link"
 
-const contactInfo = [
-  {
-    icon: Phone,
-    title: "Phone",
-    details: "+234 811 477 888",
-    description: "Call us during business hours",
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    details: "info@hrmoffice.com",
-    description: "Send us an email anytime",
-  },
-  {
-    icon: MapPin,
-    title: "Office",
-    details: "Lagos, Nigeria",
-    description: "Visit our main office",
-  },
-  {
-    icon: Clock,
-    title: "Hours",
-    details: "Mon - Fri: 9AM - 6PM",
-    description: "We're here to help",
-  },
-]
 
 // Optimized Image Component with Error Handling
 function OptimizedImage({
@@ -79,55 +53,7 @@ function OptimizedImage({
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Official AIHR Certified Partner section */}
-      <section className="py-8 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-b border-border/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <div className="flex items-center gap-3">
-                <OptimizedImage
-                  src="/aihr-academy-logo-white.png.JPG"
-                  alt="AIHR Academy"
-                  width={60}
-                  height={60}
-                  className="bg-primary rounded-lg p-2"
-                />
-                <div className="w-px h-12 bg-border"></div>
-                <OptimizedImage
-                  src="/hrm-office-logo-white.png.jpg"
-                  alt="HRM Office"
-                  width={60}
-                  height={60}
-                  className="bg-accent rounded-lg p-2"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 justify-center md:justify-start">
-                <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0 px-4 py-2 text-sm font-semibold">
-                  <CheckCircle className="w-4 h-4 mr-2" />
-                  OFFICIAL AIHR CERTIFIED PARTNER
-                </Badge>
-              </div>
-              <p className="text-sm text-muted-foreground max-w-md">
-                Authorized to deliver world-class HR training and certification programs in partnership with AIHR
-                Academy
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Hero Section */}
+        {/* Hero Section */}
       <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
@@ -148,16 +74,7 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="#contact-form">
                   <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                    Send Message <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
-                <Link href="#contact-info">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                  >
-                    Contact Info
+                    Send Message <ArrowDown className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
               </div>
@@ -179,35 +96,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Info */}
-      <section id="contact-info" className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <info.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-xl text-foreground">{info.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-lg font-semibold text-accent mb-2">{info.details}</div>
-                    <CardDescription className="text-base text-muted-foreground">{info.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Contact Form */}
       <section id="contact-form" className="py-20 bg-muted/50">
@@ -225,33 +113,51 @@ export default function ContactPage() {
                 questions and help you find the right HR solutions.
               </p>
 
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-4">What can we help you with?</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      Training and certification programs
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      HR software implementation
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      Recruitment and talent acquisition
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      HR outsourcing services
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      Business consulting and strategy
-                    </li>
-                  </ul>
+              {/* Address and Map Section */}
+              <div className="mb-8">
+                <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-2">Visit Our Office</h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        2nd Floor, Tapa House, 3/5 Immam Dauda St, off Eric Moore Rd, Surulere, Lagos 101271, Lagos
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Embedded Map */}
+                  <div className="mt-6">
+                    <div className="aspect-video w-full rounded-lg overflow-hidden border border-border">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31714.431922451997!2d3.350495!3d6.483132!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8db12acd2439%3A0x1903d46a38b303ab!2sHRMOffice!5e0!3m2!1sen!2sng!4v1757073516252!5m2!1sen!2sng"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="HRM Office Location"
+                      ></iframe>
+                    </div>
+                    <div className="mt-4 text-center">
+                      <a
+                        href="https://maps.app.goo.gl/M9NWSRYbyVeHtsJE7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                      >
+                        <MapPin className="w-4 h-4" />
+                        View on Google Maps
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </motion.div>
 
             <motion.div
@@ -260,85 +166,64 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl text-foreground">Contact Form</CardTitle>
-                  <CardDescription>We'll respond within 24 hours</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">
-                          First Name *
-                        </label>
-                        <Input id="firstName" placeholder="Enter your first name" required />
-                      </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">
-                          Last Name *
-                        </label>
-                        <Input id="lastName" placeholder="Enter your last name" required />
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Our HR Services</h3>
+                  <p className="text-lg text-muted-foreground mb-8">
+                    Discover our comprehensive range of HR solutions designed to transform your business operations and drive success.
+                  </p>
+
+                  <div className="grid gap-6">
+                    <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <BookOpen className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold text-foreground mb-2">Training & Certification Programs</h4>
+                          <p className="text-muted-foreground">Comprehensive HR training programs, certifications, and professional development courses tailored to Nigerian businesses.</p>
+                        </div>
                       </div>
                     </div>
 
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email Address *
-                      </label>
-                      <Input id="email" type="email" placeholder="Enter your email address" required />
+                    <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Users className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold text-foreground mb-2">Recruitment & Talent Acquisition</h4>
+                          <p className="text-muted-foreground">End-to-end recruitment services, executive search, and talent acquisition strategies for growing organizations.</p>
+                        </div>
+                      </div>
                     </div>
 
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                        Phone Number
-                      </label>
-                      <Input id="phone" type="tel" placeholder="Enter your phone number" />
+                    <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Building className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold text-foreground mb-2">HR Outsourcing Services</h4>
+                          <p className="text-muted-foreground">Complete HR outsourcing solutions including payroll, benefits administration, and compliance management.</p>
+                        </div>
+                      </div>
                     </div>
 
-                    <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                        Company Name
-                      </label>
-                      <Input id="company" placeholder="Enter your company name" />
+                    <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Scale className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold text-foreground mb-2">Business Consulting & Strategy</h4>
+                          <p className="text-muted-foreground">Strategic HR consulting, organizational development, and business transformation services for sustainable growth.</p>
+                        </div>
+                      </div>
                     </div>
-
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                        Service Interest
-                      </label>
-                      <select
-                        id="service"
-                        className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground"
-                      >
-                        <option value="">Select a service</option>
-                        <option value="training">Training & Certification</option>
-                        <option value="software">HR Software</option>
-                        <option value="recruitment">Recruitment</option>
-                        <option value="outsourcing">HR Outsourcing</option>
-                        <option value="consulting">Business Consulting</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                        Message *
-                      </label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us about your HR needs and how we can help..."
-                        rows={5}
-                        required
-                      />
-                    </div>
-
-                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90">
-                      Send Message <Send className="w-5 h-5 ml-2" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

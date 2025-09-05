@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Users, Award, ChevronDown, Star, Target } from "lucide-react"
+import { ArrowRight, Users, Star, Target } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 

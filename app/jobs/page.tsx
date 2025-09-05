@@ -4,9 +4,11 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Clock, DollarSign, ArrowRight, Briefcase } from "lucide-react"
+import { ArrowRight, Briefcase, Mail, Heart } from "lucide-react"
 import Link from "next/link"
 
+// Commented out job openings as requested
+/*
 const jobOpenings = [
   {
     title: "Senior HR Consultant",
@@ -23,96 +25,37 @@ const jobOpenings = [
     ],
     posted: "2 days ago",
   },
-  {
-    title: "Training Specialist",
-    department: "Training & Development",
-    location: "Lagos, Nigeria",
-    type: "Full-time",
-    salary: "₦1,800,000 - ₦2,500,000",
-    description: "Design and deliver comprehensive HR training programs for our clients.",
-    requirements: [
-      "5+ years in training and development",
-      "Adult learning principles expertise",
-      "Excellent presentation skills",
-      "Experience with e-learning platforms",
-    ],
-    posted: "1 week ago",
-  },
-  {
-    title: "Recruitment Consultant",
-    department: "Recruitment",
-    location: "Lagos, Nigeria",
-    type: "Full-time",
-    salary: "₦1,500,000 - ₦2,200,000",
-    description: "Manage end-to-end recruitment processes for various client organizations.",
-    requirements: [
-      "3+ years in recruitment",
-      "Strong sourcing and interviewing skills",
-      "Experience with ATS systems",
-      "Excellent relationship building abilities",
-    ],
-    posted: "3 days ago",
-  },
-  {
-    title: "HR Technology Analyst",
-    department: "Technology",
-    location: "Lagos, Nigeria",
-    type: "Full-time",
-    salary: "₦2,000,000 - ₦2,800,000",
-    description: "Support HR technology implementations and system optimizations.",
-    requirements: [
-      "4+ years in HR technology",
-      "Experience with HRIS systems",
-      "Data analysis and reporting skills",
-      "Project management experience",
-    ],
-    posted: "5 days ago",
-  },
-  {
-    title: "Business Development Manager",
-    department: "Sales & Marketing",
-    location: "Lagos, Nigeria",
-    type: "Full-time",
-    salary: "₦2,200,000 - ₦3,000,000",
-    description: "Drive business growth through client acquisition and relationship management.",
-    requirements: [
-      "6+ years in B2B sales",
-      "HR services industry experience",
-      "Strong negotiation skills",
-      "Proven track record of meeting targets",
-    ],
-    posted: "1 week ago",
-  },
-  {
-    title: "Junior HR Analyst",
-    department: "Analytics",
-    location: "Lagos, Nigeria",
-    type: "Full-time",
-    salary: "₦1,200,000 - ₦1,800,000",
-    description: "Support data analysis and reporting for HR metrics and insights.",
-    requirements: [
-      "2+ years in data analysis",
-      "Proficiency in Excel and data visualization tools",
-      "Understanding of HR metrics",
-      "Bachelor's degree in relevant field",
-    ],
-    posted: "4 days ago",
-  },
+  // More job openings would go here
 ]
+*/
 
 const benefits = [
-  "Competitive salary and performance bonuses",
-  "Comprehensive health insurance",
-  "Professional development opportunities",
-  "Flexible working arrangements",
-  "Annual leave and wellness programs",
-  "Career advancement pathways",
+  {
+    icon: Briefcase,
+    title: "Competitive Compensation",
+    description: "Industry-competitive salary and performance bonuses"
+  },
+  {
+    icon: Heart,
+    title: "Health & Wellness",
+    description: "Comprehensive health insurance and wellness programs"
+  },
+  {
+    icon: Mail,
+    title: "Career Growth",
+    description: "Professional development and advancement opportunities"
+  },
+  {
+    icon: ArrowRight,
+    title: "Work-Life Balance",
+    description: "Flexible working arrangements and generous leave"
+  },
 ]
 
 export default function JobsPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
+      {/* Hero Section - Unchanged */}
       <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
@@ -132,7 +75,7 @@ export default function JobsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  <Link href="#openings">
+                  <Link href="#openings" className="flex items-center">
                     View Open Positions <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
@@ -163,8 +106,8 @@ export default function JobsPage() {
         </div>
       </section>
 
-      {/* Why Join Us */}
-      <section className="py-20 bg-background">
+      {/* Why Join Us - Enhanced */}
+      <section id="benefits" className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -173,107 +116,36 @@ export default function JobsPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">Why Join HRM Office?</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="w-6 h-px bg-primary"></div>
+              <span className="text-sm font-medium text-primary">Why Choose Us</span>
+              <div className="w-6 h-px bg-primary"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Join HRM Office?</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Be part of a team that's shaping the future of HR services across Africa while advancing your own career.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <motion.div
-                key={benefit}
-                className="flex items-center gap-3 bg-card rounded-lg p-4"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
-                <span className="text-foreground">{benefit}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Job Openings */}
-      <section id="openings" className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">Current Job Openings</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Explore exciting career opportunities across various departments and find your perfect role.
-            </p>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {jobOpenings.map((job, index) => (
-              <motion.div
-                key={job.title}
+                key={benefit.title}
+                className="text-center group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -5 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 group">
+                <Card className="h-full border-0 shadow-sm group-hover:shadow-lg transition-all duration-300">
                   <CardHeader>
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <CardTitle className="text-xl text-foreground mb-2">{job.title}</CardTitle>
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="secondary">{job.department}</Badge>
-                          <Badge variant="outline">{job.type}</Badge>
-                        </div>
-                      </div>
-                      <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Briefcase className="w-6 h-6 text-white" />
-                      </div>
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                      <benefit.icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardDescription className="text-base text-muted-foreground mb-4">
-                      {job.description}
-                    </CardDescription>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        {job.location}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <DollarSign className="w-4 h-4" />
-                        {job.salary}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        Posted {job.posted}
-                      </div>
-                    </div>
+                    <CardTitle className="text-xl text-foreground mb-2">{benefit.title}</CardTitle>
+                    <CardDescription className="text-base">{benefit.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">Requirements:</h4>
-                        <ul className="space-y-1">
-                          {job.requirements.map((req) => (
-                            <li key={req} className="flex items-start gap-2 text-sm text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0" />
-                              {req}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <Button className="w-full bg-primary hover:bg-primary/90 group-hover:bg-accent group-hover:text-white transition-colors">
-                        <Link href="/contact" className="flex items-center justify-center gap-2">
-                          Apply Now <ArrowRight className="w-4 h-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -281,8 +153,115 @@ export default function JobsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-primary">
+      {/* Job Openings Section - Updated */}
+      <section id="openings" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="w-6 h-px bg-primary"></div>
+              <span className="text-sm font-medium text-primary">Career Opportunities</span>
+              <div className="w-6 h-px bg-primary"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Current Job Openings</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Explore exciting career opportunities across various departments and find your perfect role.
+            </p>
+          </motion.div>
+
+          {/* No Openings Message */}
+          <motion.div
+            className="text-center py-12 bg-background rounded-2xl shadow-sm mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
+              <Briefcase className="w-8 h-8 text-muted-foreground" />
+            </div>
+            <h3 className="text-2xl font-semibold text-foreground mb-2">No Current Openings</h3>
+            <p className="text-muted-foreground max-w-md mx-auto mb-6">
+              We don't have any open positions at the moment. Please check back later or submit your resume for future opportunities.
+            </p>
+            <Button asChild variant="outline">
+              <a href="#submit-resume">Submit Your Resume</a>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Resume Submission Section - Simplified */}
+      <section id="submit-resume" className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="w-6 h-px bg-primary"></div>
+              <span className="text-sm font-medium text-primary">Submit Your Resume</span>
+              <div className="w-6 h-px bg-primary"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Interested in Working With Us?</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Send your resume to our email and we'll keep it on file for future opportunities.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="border-0 shadow-lg text-center">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-8 h-8 text-primary" />
+                </div>
+                <CardTitle className="text-2xl">Submit Your Resume</CardTitle>
+                <CardDescription>
+                  Email your resume directly to our HR team
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="bg-muted/50 rounded-xl p-6">
+                    <p className="text-lg font-medium text-foreground mb-2">Send your resume to:</p>
+                    <a 
+                      href="mailto:hrmofficeltd@gmail.com" 
+                      className="text-2xl font-bold text-primary hover:underline break-all"
+                    >
+                      hrmofficeltd@gmail.com
+                    </a>
+                    <p className="text-muted-foreground mt-4">
+                      We'll review your qualifications and contact you when suitable positions become available.
+                    </p>
+                  </div>
+                  <Button asChild size="lg" className="w-full">
+                    <a href="mailto:hrmofficeltd@gmail.com" className="flex items-center">
+                      Send Email <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-primary to-accent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -291,15 +270,17 @@ export default function JobsPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-balance">Don't See the Right Role?</h2>
-            <p className="text-xl text-white/90 mb-8 text-pretty">
-              We're always looking for talented individuals to join our team. Send us your resume and let us know how
-              you'd like to contribute to our mission.
+            <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Mail className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Have Questions About Working With Us?</h2>
+            <p className="text-xl text-white/90 mb-8">
+              Feel free to reach out to our team for more information about career opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                <Link href="/contact">
-                  Send Your Resume <ArrowRight className="w-5 h-5 ml-2" />
+              <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90">
+                <Link href="/contact" className="flex items-center">
+                  Contact Us <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button
@@ -308,7 +289,7 @@ export default function JobsPage() {
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
               >
-                <Link href="/about">Learn More About Us</Link>
+                <a href="#submit-resume">Submit Resume</a>
               </Button>
             </div>
           </motion.div>

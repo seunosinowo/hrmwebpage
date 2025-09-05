@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Award, Sparkles, Phone } from "lucide-react"
+import { Menu, X, ChevronDown, Award, Sparkles } from "lucide-react"
 
 const navigationItems = [
   {

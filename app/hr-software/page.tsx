@@ -285,11 +285,11 @@ export default function HRSoftwarePage() {
               solution.
             </p>
             <div className="flex justify-center">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                <Link href="/contact" className="flex items-center">
+              <Link href="/contact" className="flex items-center">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
                   Contact us <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
