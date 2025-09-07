@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react"
+import { Calendar, User, Clock, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -11,7 +11,7 @@ export default function HRMOfficeCIPMConferencePage() {
     date: "May 15, 2023",
     readTime: "6 min read",
     category: "Events",
-    image: "/blog-workplace-compliance.png.jpg",
+    image: "/hr-software.webp",
     slug: "hrmoffice-team-engages-hr-professionals-lagos-cipm-conference-2023",
   }
 
@@ -90,16 +90,9 @@ export default function HRMOfficeCIPMConferencePage() {
 
             {/* Article Footer */}
             <div className="mt-12 pt-8 border-t border-border">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <Button variant="outline" size="sm">
-                    <Share2 className="w-4 h-4 mr-2" />
-                    Share Article
-                  </Button>
-                </div>
-
+              <div className="flex items-center justify-end">
                 <Button asChild>
-                  <Link href="/blog">
+                  <Link href="/blog" className="inline-flex items-center">
                     Read More Articles
                     <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
                   </Link>

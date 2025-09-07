@@ -119,7 +119,7 @@ export default function HRSoftwarePage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Image
-                src="/hr-software.jpg"
+                src="/hr-software.webp"
                 alt="HR Software Dashboard"
                 width={600}
                 height={400}

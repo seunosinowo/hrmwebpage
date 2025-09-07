@@ -142,7 +142,7 @@ export default function OutsourcingPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Image
-                src="/outsourcing.jpg"
+                src="/outsourcing_1.webp"
                 alt="HR outsourcing team at work"
                 width={600}
                 height={400}
@@ -323,7 +323,7 @@ export default function OutsourcingPage() {
               viewport={{ once: true }}
             >
               <Image
-                src="/outsource2.jpg"
+                src="/outsourcing_2.webp"
                 alt="HR team collaboration"
                 width={600}
                 height={400}

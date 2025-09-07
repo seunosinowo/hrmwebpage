@@ -98,7 +98,7 @@ export default function JobsPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Image
-                src="/business-partnering-strategic-meeting.png.jpg"
+                src="/jobs.webp"
                 alt="HRM Office team collaboration"
                 width={600}
                 height={400}
@@ -241,12 +241,9 @@ export default function JobsPage() {
                 <div className="space-y-6">
                   <div className="bg-muted/50 rounded-xl p-6">
                     <p className="text-lg font-medium text-foreground mb-2">Send your resume to:</p>
-                    <a 
-                      href="mailto:hrmofficeltd@gmail.com" 
-                      className="text-2xl font-bold text-primary hover:underline break-all"
-                    >
+                    <p className="text-2xl font-bold text-primary break-all">
                       hrmofficeltd@gmail.com
-                    </a>
+                    </p>
                     <p className="text-muted-foreground mt-4">
                       We&apos;ll review your qualifications and contact you when suitable positions become available.
                     </p>
@@ -292,7 +289,7 @@ export default function JobsPage() {
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
               >
-                <a href="#submit-resume">Submit Resume</a>
+                <Link href="#submit-resume">Submit Resume</Link>
               </Button>
             </div>
           </motion.div>

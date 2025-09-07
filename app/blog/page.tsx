@@ -45,21 +45,22 @@ export default function BlogPage() {
                 Expert insights, industry trends, and practical advice to help you navigate the evolving world of human
                 resources and organizational development.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  <Link href="#guides" className="flex items-center">
-                    Read Latest Posts <ArrowRight className="w-5 h-5 ml-2" />
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href="#guides">
+                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
+                      Read Latest Posts <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
                   </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
-                >
-                  <Link href="#tags">Popular Tags</Link>
-                </Button>
-              </div>
+                  <Link href="#tags">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                    >
+                      Popular Tags
+                    </Button>
+                  </Link>
+                </div>
             </motion.div>
 
             <motion.div
@@ -69,7 +70,7 @@ export default function BlogPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Image
-                src="/blog-digital-transformation-hr.png.jpg"
+                src="/blog.webp"
                 alt="HR insights and digital transformation"
                 width={600}
                 height={400}
@@ -171,53 +172,48 @@ export default function BlogPage() {
                   viewport={{ once: true }}
                   whileHover={{ y: -5 }}
                 >
-                  <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 group border-0 shadow-sm">
-                    <div className="relative overflow-hidden">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        width={400}
-                        height={192}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      <Badge className="absolute top-3 left-3 bg-accent text-white border-0">{post.category}</Badge>
-                    </div>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-lg text-foreground mb-2 text-balance group-hover:text-primary transition-colors">
-                        {post.title}
-                      </CardTitle>
-                      <CardDescription className="text-sm text-muted-foreground text-pretty line-clamp-3">
-                        {post.excerpt}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <div className="flex items-center gap-1">
-                          <User className="w-4 h-4" />
-                          {post.author}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {post.date}
-                        </div>
+                  <Link href={getBlogUrl(post.slug)} className="block h-full">
+                    <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 group border-0 shadow-sm">
+                      <div className="relative overflow-hidden">
+                        <Image
+                          src={post.image || "/placeholder.svg"}
+                          alt={post.title}
+                          width={400}
+                          height={192}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <Badge className="absolute top-3 left-3 bg-accent text-white border-0">{post.category}</Badge>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">{post.readTime}</span>
-                        <Button
-                          asChild
-                          variant="ghost"
-                          size="sm"
-                          className="text-primary hover:text-primary/80 hover:bg-primary/10 group-hover:gap-1 transition-all flex items-center"
-                        >
-                          <Link href={getBlogUrl(post.slug)} className="flex items-center">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg text-foreground mb-2 text-balance group-hover:text-primary transition-colors">
+                          {post.title}
+                        </CardTitle>
+                        <CardDescription className="text-sm text-muted-foreground text-pretty line-clamp-3">
+                          {post.excerpt}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                          <div className="flex items-center gap-1">
+                            <User className="w-4 h-4" />
+                            {post.author}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {post.date}
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">{post.readTime}</span>
+                          <div className="text-primary group-hover:gap-1 transition-all flex items-center px-3 py-2 rounded-md text-sm font-medium">
                             Read More
                             <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </motion.div>
               )
             })}

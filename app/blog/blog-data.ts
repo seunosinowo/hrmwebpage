@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     date: "Jun 02, 2025",
     readTime: "8 min read",
     category: "Legal Compliance",
-    image: "/blog-digital-transformation-hr.png.jpg",
+    image: "/about_1.webp",
     featured: true,
     slug: "nigerian-labour-laws",
     fullContent: `
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
     date: "Apr 16, 2025",
     readTime: "10 min read",
     category: "Recruitment",
-    image: "/blog-recruitment-strategies-2025.png.jpg",
+    image: "/aboutusTeam.webp",
     featured: false,
     slug: "hiring-right-candidate-guide",
     fullContent: `
@@ -165,7 +165,7 @@ export const blogPosts: BlogPost[] = [
     date: "Mar 10, 2025",
     readTime: "9 min read",
     category: "Training",
-    image: "/blog-people-analytics.png.jpg",
+    image: "/outsourcing_1.webp",
     featured: false,
     slug: "2025-corporate-training-programs",
     fullContent: `
@@ -245,7 +245,7 @@ export const blogPosts: BlogPost[] = [
     date: "Feb 24, 2025",
     readTime: "7 min read",
     category: "Training",
-    image: "/blog-remote-work-culture.png.jpg",
+    image: "/Hero_team.webp",
     featured: false,
     slug: "hrmoffice-2025-training-calendar",
     fullContent: `
@@ -302,7 +302,7 @@ export const blogPosts: BlogPost[] = [
     date: "May 15, 2023",
     readTime: "6 min read",
     category: "Events",
-    image: "/blog-workplace-compliance.png.jpg",
+    image: "/hr-software.webp",
     featured: false,
     slug: "hrmoffice-cipm-conference-2023",
     fullContent: `
@@ -326,7 +326,7 @@ export const blogPosts: BlogPost[] = [
     date: "Mar 06, 2023",
     readTime: "12 min read",
     category: "Outsourcing",
-    image: "/hr-outsourcing-team-working.png.jpg",
+    image: "/jobs.webp",
     featured: false,
     slug: "hr-outsourcing-competitive-tool",
     fullContent: `
@@ -391,7 +391,7 @@ export const blogPosts: BlogPost[] = [
     date: "Aug 08, 2022",
     readTime: "11 min read",
     category: "Post-Covid HR",
-    image: "/blog-employee-engagement.png.jpg",
+    image: "/outsource2.webp",
     featured: false,
     slug: "hr-role-post-covid-era",
     fullContent: `

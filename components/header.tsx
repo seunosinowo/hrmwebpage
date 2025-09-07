@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, Award, Sparkles } from "lucide-react"
@@ -28,6 +29,7 @@ const navigationItems = [
 ]
 
 export function Header() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
   const [isMobileSubmenuOpen, setIsMobileSubmenuOpen] = useState<string | null>(null)
@@ -55,7 +57,7 @@ export function Header() {
     >
 
       {/* Top Banner */}
-      <div className="w-full bg-gradient-to-r from-accent/20 to-accent/10 border-b border-accent/20 py-1.5">
+      <div className="hidden md:block w-full bg-gradient-to-r from-accent/20 to-accent/10 border-b border-accent/20 py-1.5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div></div>
@@ -97,10 +99,11 @@ export function Header() {
               <div key={item.name} className="relative group" ref={submenuRef}>
                 {item.hasSubmenu ? (
                   <div
-                    className="flex items-center space-x-1 text-white/90 hover:text-white transition-all duration-300 cursor-pointer py-2 px-4 rounded-xl hover:bg-white/5"
+                    className={`flex items-center space-x-1 text-white/90 hover:text-white transition-all duration-300 cursor-pointer py-2 px-4 rounded-xl hover:bg-white/5 ${(item.submenu?.some(sub => pathname === sub.href) || pathname === item.href) ? "bg-accent text-white" : ""}`}
                     onMouseEnter={() => setActiveSubmenu(item.name)}
                     onMouseLeave={() => setActiveSubmenu(null)}
                     onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
+                    suppressHydrationWarning
                   >
                     <span className="font-medium text-sm">{item.name}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeSubmenu === item.name ? "rotate-180" : ""}`} />
@@ -125,7 +128,8 @@ export function Header() {
                               key={subItem.name}
                               href={subItem.href}
                               prefetch={true}
-                              className="block px-4 py-3 text-foreground hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 transition-all duration-200 border-l-4 border-transparent hover:border-accent group/item"
+                              className={`block px-4 py-3 text-foreground hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 transition-all duration-200 border-l-4 border-transparent hover:border-accent group/item ${pathname === subItem.href ? "bg-accent/10 border-accent" : ""}`}
+                              suppressHydrationWarning
                             >
                               <div className="font-medium text-sm flex items-center">
                                 {subItem.name}
@@ -144,7 +148,8 @@ export function Header() {
                   <Link
                     href={item.href}
                     prefetch={true}
-                    className="text-white/90 hover:text-white transition-all duration-300 font-medium text-sm py-2 px-4 rounded-xl hover:bg-white/5"
+                    className={`text-white/90 hover:text-white transition-all duration-300 font-medium text-sm py-2 px-4 rounded-xl hover:bg-white/5 ${pathname === item.href ? "bg-accent text-white" : ""}`}
+                    suppressHydrationWarning
                   >
                     {item.name}
                   </Link>
@@ -199,8 +204,9 @@ export function Header() {
                     {item.hasSubmenu ? (
                       <div>
                         <button
-                          className="w-full text-left px-4 py-3 text-white hover:text-accent transition-colors flex items-center justify-between rounded-xl hover:bg-white/5"
+                          className={`w-full text-left px-4 py-3 text-white hover:text-accent transition-colors flex items-center justify-between rounded-xl hover:bg-white/5 ${(item.submenu?.some(sub => pathname === sub.href) || pathname === item.href) ? "bg-accent text-white" : ""}`}
                           onClick={() => setIsMobileSubmenuOpen(isMobileSubmenuOpen === item.name ? null : item.name)}
+                          suppressHydrationWarning
                         >
                           <span className="font-medium text-sm">{item.name}</span>
                           <ChevronDown
@@ -221,11 +227,12 @@ export function Header() {
                                   key={subItem.name}
                                   href={subItem.href}
                                   prefetch={true}
-                                  className="block px-4 py-2.5 text-white/80 hover:text-accent transition-colors rounded-lg hover:bg-white/5"
+                                  className={`block px-4 py-2.5 text-white/80 hover:text-accent transition-colors rounded-lg hover:bg-white/5 ${pathname === subItem.href ? "bg-accent text-white" : ""}`}
                                   onClick={() => {
                                     setIsOpen(false)
                                     setIsMobileSubmenuOpen(null)
                                   }}
+                                  suppressHydrationWarning
                                 >
                                   <div className="font-medium text-sm flex items-center">
                                     {subItem.name}
@@ -244,8 +251,9 @@ export function Header() {
                       <Link
                         href={item.href}
                         prefetch={true}
-                        className="block px-4 py-3 text-white hover:text-accent transition-colors rounded-xl hover:bg-white/5 font-medium text-sm"
+                        className={`block px-4 py-3 text-white hover:text-accent transition-colors rounded-xl hover:bg-white/5 font-medium text-sm ${pathname === item.href ? "bg-accent text-white" : ""}`}
                         onClick={() => setIsOpen(false)}
+                        suppressHydrationWarning
                       >
                         {item.name}
                       </Link>

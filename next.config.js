@@ -2,11 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  transpilePackages: ['framer-motion'],
   images: {
-    domains: [], // Add allowed image domains here if needed
+    domains: [],
     formats: ['image/webp', 'image/avif'],
   },
   experimental: {
+    esmExternals: true,
     // optimizeCss: true, // Disabled to avoid critters dependency issue
   },
 };

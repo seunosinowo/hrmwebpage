@@ -137,7 +137,7 @@ export function Hero() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/Hero_team.jpg"
+                  src="/Hero_team.webp"
                   alt="Professional HR team collaboration"
                   fill
                   className="object-cover"
@@ -156,13 +156,15 @@ export function Hero() {
                   <span className="font-medium text-base text-primary/90">Certified Partners with</span>
                 </div>
                 <div className="w-full flex justify-center mt-0">
-                  <Image
-                    src="/aihr.png"
-                    alt="AIHR Logo"
-                    width={200}
-                    height={70}
-                    className="object-contain"
-                  />
+                  <a href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src="/aihr.png"
+                      alt="AIHR Logo"
+                      width={200}
+                      height={70}
+                      className="object-contain"
+                    />
+                  </a>
                 </div>
               </motion.div>
             </div>

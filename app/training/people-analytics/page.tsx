@@ -157,7 +157,7 @@ export default function PeopleAnalyticsPage() {
               </div>
               <h2 className="text-2xl font-bold mb-2">Official AIHR Partner</h2>
               <p className="text-white/90 max-w-2xl mx-auto">
-                We're proud to collaborate with AIHR to bring you internationally recognized HR credentials
+                We're proud to collaborate with AIHR to bring you internationally recognized HR certifications
                 that advance your career.
               </p>
             </motion.div>

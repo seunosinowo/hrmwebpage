@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Suspense } from "react"
+import { SimpleLoadingSpinner } from "@/components/loading"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
@@ -45,7 +46,11 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <Header />
-        <Suspense fallback={null}>
+        <Suspense fallback={
+          <div className="flex items-center justify-center py-20">
+            <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
+          </div>
+        }>
           <main>{children}</main>
         </Suspense>
         <Footer />

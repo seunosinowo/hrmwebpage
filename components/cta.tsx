@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export function CTA() {
   return (
-    <section className="py-20 bg-gradient-to-r from-primary to-primary/90 text-white relative overflow-hidden">
+  <section className="py-20 bg-gradient-to-br from-blue-100 via-primary/30 to-accent/20 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 right-10 w-64 h-64 bg-accent rounded-full blur-3xl"></div>
@@ -22,11 +22,11 @@ export function CTA() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-balance">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-balance text-primary">
             Ready to Transform Your <span className="text-accent">HR Strategy?</span>
           </h2>
 
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto text-pretty leading-relaxed">
+          <p className="text-xl text-primary mb-8 max-w-3xl mx-auto text-pretty leading-relaxed">
             Join thousands of HR professionals who have elevated their careers through our AIHR-certified programs.
             Start your transformation journey today with Nigeria's leading HR services partner.
           </p>
@@ -47,7 +47,7 @@ export function CTA() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                className="bg-white text-primary border-white hover:bg-primary hover:text-white"
               >
                 Read our Blog
               </Button>

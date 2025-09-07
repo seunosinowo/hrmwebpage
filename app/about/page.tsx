@@ -51,7 +51,7 @@ const team = [
   {
     name: "Fredrick Okeagu (Ph.D in view, MSc, ACIPM, HRPL, CMC, C-KPI)",
     role: "Managing Partner",
-    image: "/fred.jpg",
+    image: "/fred.webp",
     description: "Experienced HR professional with extensive expertise in human resource management and strategic leadership.",
   },
 ]
@@ -137,7 +137,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Image
-                src="/Hero_team.jpg"
+                src="/about_1.webp"
                 alt="HRM Office team collaboration"
                 width={600}
                 height={400}
@@ -191,7 +191,7 @@ export default function AboutPage() {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/aboutusTeam.jpg"
+                  src="/aboutusTeam.webp"
                   alt="HRM Office team collaboration"
                   width={800}
                   height={450}
