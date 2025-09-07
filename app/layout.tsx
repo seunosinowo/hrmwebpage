@@ -45,16 +45,16 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <Header />
         <Suspense fallback={
-          <div className="flex items-center justify-center py-20">
+          <div className="flex items-center justify-center min-h-screen bg-background">
             <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         }>
+          <Header />
           <main>{children}</main>
+          <Footer />
+          <WhatsAppFloat />
         </Suspense>
-        <Footer />
-        <WhatsAppFloat />
       </body>
     </html>
   )
