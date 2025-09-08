@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BarChart3, Users, Star, TrendingUp, CheckCircle, Award, Monitor, BookOpen, GraduationCap, ExternalLink } from "lucide-react"
+import { BarChart3, Users, Star, TrendingUp, CheckCircle, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -157,8 +157,7 @@ export default function PeopleAnalyticsPage() {
               </div>
               <h2 className="text-2xl font-bold mb-2">Official AIHR Partner</h2>
               <p className="text-white/90 max-w-2xl mx-auto">
-                We're proud to collaborate with AIHR to bring you internationally recognized HR certifications
-                that advance your career.
+                Our collaboration with AIHR ensures you receive the highest quality HR education with local support and guidance. Choose our platform and enjoy a minimum 10% discount on all programs, making world-class HR certification truly accessible.
               </p>
             </motion.div>
           </div>

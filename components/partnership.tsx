@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { Award, CheckCircle, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import Image from "next/image"
 
 const benefits = [
@@ -98,7 +97,7 @@ export function Partnership() {
                 </div>
                 <div>
                   <div className="font-semibold text-xs lg:text-sm text-primary">Official Partner</div>
-                  <div className="text-xs lg:text-sm text-muted-foreground">Since 2024</div>
+                  <div className="text-xs lg:text-sm text-muted-foreground">Since 2025</div>
                 </div>
               </motion.div>
             </div>

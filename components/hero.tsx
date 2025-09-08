@@ -2,24 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Users, Star, Target } from "lucide-react"
+import { ArrowRight, Star, Target } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useEffect, useState } from "react"
 
 export function Hero() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => {
-      window.removeEventListener('resize', checkMobile)
-    }
-  }, [])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/95 via-primary to-primary/90">

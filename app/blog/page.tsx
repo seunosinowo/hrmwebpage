@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, User, ArrowRight, Clock, BookOpen, Search, FileText, Scale, Building, Users } from "lucide-react"
+import { Calendar, User, ArrowRight, Search } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { blogPosts } from "./blog-data"
@@ -249,7 +249,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {popularTags.map((tag, index) => (
+            {popularTags.map((tag) => (
               <Badge
                 key={tag}
                 variant="outline"

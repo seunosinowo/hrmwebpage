@@ -72,11 +72,12 @@ export function Footer() {
                     <div className="space-y-3 mb-6">
                       <div className="flex items-center gap-3">
                         <Phone className="w-5 h-5 text-accent" />
-                        <span className="text-white/80">+234 811 477 888</span>
+                        <span className="text-white/80">+234 704 307 1341
+</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Mail className="w-5 h-5 text-accent" />
-                        <span className="text-white/80">info@hrmoffice.com</span>
+                        <span className="text-white/80">hello@hrmoffice.org</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <MapPin className="w-5 h-5 text-accent" />

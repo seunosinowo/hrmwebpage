@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BookOpen, Award, Star, TrendingUp, CheckCircle, BarChart3, Monitor, Users, GraduationCap, ExternalLink } from "lucide-react"
+import { BookOpen, Star, TrendingUp, CheckCircle, Users, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -175,8 +175,7 @@ export default function HREssentialsPage() {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Our AIHR Collaboration?</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our collaboration with AIHR ensures you receive the highest quality HR education with local
-                support and guidance.
+                Our collaboration with AIHR ensures you receive the highest quality HR education with local support and guidance. Choose our platform and enjoy a minimum 10% discount on all programs, making world-class HR certification truly accessible.
               </p>
             </motion.div>
 

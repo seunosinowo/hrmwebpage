@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, Monitor, Users, Building, ArrowRight, Target, BarChart3, BookOpen, Settings } from "lucide-react"
+import { GraduationCap, Monitor, Users, Building, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const services = [

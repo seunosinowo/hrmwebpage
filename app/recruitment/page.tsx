@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Users, Search, Target, CheckCircle, ArrowRight, ArrowDown, Clock, UserCheck, FileText, Megaphone, ClipboardCheck, BarChart3, Presentation } from "lucide-react"
+import { Users, CheckCircle, ArrowDown, FileText, Megaphone, ClipboardCheck, BarChart3, Presentation } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 

@@ -2,80 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Monitor, Clock, Users, Star, ExternalLink, CheckCircle, TrendingUp, ArrowRight } from "lucide-react"
+import { Monitor, Users, Star, ExternalLink, CheckCircle, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-const digitalHRCourses = [
-  {
-    title: "Digital HR Transformation",
-    duration: "6 weeks",
-    level: "Intermediate",
-    rating: 4.8,
-    students: "15,000+",
-    price: "$999",
-    description: "Lead digital transformation initiatives in HR and people operations",
-    features: [
-      "HR Technology Strategy",
-      "Digital Employee Experience",
-      "Automation & AI in HR",
-      "Change Management",
-      "Data Privacy & Compliance",
-    ],
-    outcomes: [
-      "Design digital HR strategies",
-      "Implement HR technology solutions",
-      "Automate HR processes",
-      "Enhance employee digital experience",
-    ],
-  },
-  {
-    title: "HR Analytics & Digital Insights",
-    duration: "8 weeks",
-    level: "Intermediate",
-    rating: 4.9,
-    students: "12,000+",
-    price: "$1,299",
-    description: "Master data-driven HR decisions with advanced analytics and digital tools",
-    features: [
-      "Advanced Excel & Power BI for HR",
-      "Digital HR Dashboards",
-      "Predictive Analytics in HR",
-      "Employee Experience Metrics",
-      "Digital Workforce Planning",
-    ],
-    outcomes: [
-      "Build comprehensive digital HR dashboards",
-      "Measure and improve digital employee experience",
-      "Predict employee engagement trends",
-      "Create data-driven digital HR strategies",
-    ],
-  },
-  {
-    title: "Digital Talent Management",
-    duration: "10 weeks",
-    level: "Advanced",
-    rating: 4.7,
-    students: "8,500+",
-    price: "$1,599",
-    description: "Transform talent management with digital tools and strategies",
-    features: [
-      "Digital Recruitment Platforms",
-      "AI-Powered Talent Acquisition",
-      "Digital Learning & Development",
-      "Virtual Team Management",
-      "Digital Performance Management",
-    ],
-    outcomes: [
-      "Implement digital talent acquisition",
-      "Design virtual learning programs",
-      "Manage remote and hybrid teams",
-      "Optimize digital performance systems",
-    ],
-  },
-]
 
 const navigationItems = [
   { title: "Certificate Programs", href: "/training/certificate-programs", icon: "Award" },
@@ -245,8 +176,7 @@ export default function DigitalHRPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Our AIHR Collaboration?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our collaboration with AIHR ensures you receive the highest quality digital HR education with local
-              support and guidance.
+              Our collaboration with AIHR ensures you receive the highest quality HR education with local support and guidance. Choose our platform and enjoy a minimum 10% discount on all programs, making world-class HR certification truly accessible.
             </p>
           </motion.div>
 

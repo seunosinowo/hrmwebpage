@@ -2,18 +2,13 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
-  Shield,
   DollarSign,
-  Users,
   CheckCircle,
-  ArrowRight,
   ArrowDown,
   TrendingUp,
-  FileText,
-  Calculator,
   UserCheck,
   Settings,
   Target,
@@ -28,7 +23,6 @@ import {
   Star,
   Flame
 } from "lucide-react"
-import Link from "next/link"
 import Image from "next/image"
 
 const benefits = [

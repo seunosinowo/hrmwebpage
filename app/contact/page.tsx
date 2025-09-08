@@ -2,53 +2,12 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Send, Award, CheckCircle, ArrowRight, ArrowDown, BookOpen, Users, Building, Scale, MapPin } from "lucide-react"
+import { ArrowRight, BookOpen, Users, Building, Scale, MapPin } from "lucide-react"
 import Image from "next/image"
-import { useState } from "react"
 import Link from "next/link"
 
 
-// Optimized Image Component with Error Handling
-function OptimizedImage({
-  src,
-  alt,
-  width,
-  height,
-  className = ""
-}: {
-  src: string
-  alt: string
-  width: number
-  height: number
-  className?: string
-}) {
-  const [hasError, setHasError] = useState(false)
-
-  if (hasError) {
-    // Show default logo placeholder
-    return (
-      <div className={`${className} bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center`} style={{ width, height }}>
-        <Award className="w-8 h-8 text-white" />
-      </div>
-    )
-  }
-
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      onError={() => setHasError(true)}
-      loading="lazy"
-    />
-  )
-}
 
 export default function ContactPage() {
   return (
@@ -72,9 +31,9 @@ export default function ContactPage() {
                 how we can help your organization thrive.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="#contact-form">
+                <Link href="#location">
                   <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                    Send Message <ArrowDown className="w-5 h-5 ml-2" />
+                    Map Address <MapPin className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
               </div>
@@ -99,8 +58,8 @@ export default function ContactPage() {
       </section>
 
 
-      {/* Contact Form */}
-      <section id="contact-form" className="py-20 bg-muted/50">
+      {/* Location */}
+      <section id="location" className="py-20 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
@@ -109,10 +68,10 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">Send Us a Message</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">Our Location</h2>
               <p className="text-lg text-muted-foreground mb-8 text-pretty">
-                Fill out the form below and our team will get back to you within 24 hours. We're here to answer your
-                questions and help you find the right HR solutions.
+                Find our office location on the map below. We're located in Surulere, Lagos, and ready to help you
+                with your HR needs. Visit us or get directions to start your journey with our expert services.
               </p>
 
               {/* Address and Map Section */}

@@ -6,13 +6,13 @@ import { Users, Award, Building, TrendingUp } from "lucide-react"
 const stats = [
   {
     icon: Users,
-    number: "15,000+",
+    number: "3500+",
     label: "HR Professionals Certified",
     description: "Through our AIHR partnership programs",
   },
   {
     icon: Building,
-    number: "800+",
+    number: "300+",
     label: "Companies Transformed",
     description: "Across Nigeria and West Africa",
   },
