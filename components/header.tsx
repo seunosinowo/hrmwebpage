@@ -6,7 +6,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Award, Sparkles } from "lucide-react"
+import { Menu, X, ChevronDown, Award, Sparkles, BookOpen, Users, TrendingUp, BarChart3, Brain, Target } from "lucide-react"
 
 const navigationItems = [
   {
@@ -27,6 +27,60 @@ const navigationItems = [
   { name: "Outsourcing", href: "/outsourcing" },
   { name: "About Us", href: "/about" },
 ]
+
+// Certificate program data structure
+const certificatePrograms = {
+  categories: [
+    {
+      title: "Certificate Programs",
+      icon: BookOpen,
+      items: [
+        { name: "Professional Certification", badge: "accredited" },
+        { name: "Industry Recognition", badge: "official" },
+      ],
+    },
+    {
+      title: "People Analytics",
+      icon: BarChart3,
+      items: [
+        { name: "Data-Driven HR", badge: "analytics" },
+        { name: "Workforce Insights", badge: "strategic" },
+      ],
+    },
+    {
+      title: "Digital HR",
+      icon: TrendingUp,
+      items: [
+        { name: "HR Technology", badge: "innovative" },
+        { name: "Digital Transformation", badge: "future" },
+      ],
+    },
+    {
+      title: "Business Partnering",
+      icon: Target,
+      items: [
+        { name: "Strategic Leadership", badge: "executive" },
+        { name: "Business Alignment", badge: "partnership" },
+      ],
+    },
+    {
+      title: "HR Essentials",
+      icon: Users,
+      items: [
+        { name: "Core HR Skills", badge: "foundational" },
+        { name: "Professional Development", badge: "essential" },
+      ],
+    },
+    {
+      title: "Full Academy",
+      icon: Sparkles,
+      items: [
+        { name: "Complete Curriculum", badge: "comprehensive" },
+        { name: "Expert Certification", badge: "premium" },
+      ],
+    },
+  ]
+}
 
 export function Header() {
   const pathname = usePathname()
@@ -98,56 +152,105 @@ export function Header() {
             {navigationItems.map((item) => (
               <div key={item.name} className="relative group" ref={submenuRef}>
                 {item.hasSubmenu ? (
-                  <div
-                    className={`flex items-center space-x-1 text-white/90 hover:text-white transition-all duration-300 cursor-pointer py-2 px-4 rounded-xl hover:bg-white/5 ${(item.submenu?.some(sub => pathname === sub.href) || pathname === item.href) ? "bg-accent text-white" : ""}`}
-                    onMouseEnter={() => setActiveSubmenu(item.name)}
-                    onMouseLeave={() => setActiveSubmenu(null)}
-                    onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
-                    suppressHydrationWarning
-                  >
-                    <span className="font-medium text-sm">{item.name}</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeSubmenu === item.name ? "rotate-180" : ""}`} />
+                  <>
+                    <div
+                      className={`flex items-center space-x-1 text-white/90 hover:text-white transition-all duration-300 cursor-pointer py-2 px-4 rounded-xl hover:bg-white/5 ${(item.submenu?.some(sub => pathname === sub.href) || pathname === item.href) ? "bg-accent text-white" : ""}`}
+                      onMouseEnter={() => setActiveSubmenu(item.name)}
+                      onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
+                      suppressHydrationWarning
+                    >
+                      <span className="font-medium text-sm">{item.name}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeSubmenu === item.name ? "rotate-180" : ""}`} />
+                    </div>
 
                     <AnimatePresence>
                       {activeSubmenu === item.name && (
                         <motion.div
-                          className="absolute top-full left-0 mt-3 w-72 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 overflow-hidden"
+                          className="absolute top-full left-0 mt-3 w-[750px] bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 overflow-hidden flex"
                           initial={{ opacity: 0, y: -10, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <div className="p-2 bg-gradient-to-r from-primary/5 to-accent/5 border-b border-white/20">
-                            <div className="flex items-center space-x-2 px-3 py-2">
-                              <Award className="w-4 h-4 text-accent" />
-                              <span className="text-sm font-medium text-foreground">AIHR Partnership Programs</span>
+                          {/* Left column: Certificate Categories */}
+                           <div className="w-1/3 bg-gradient-to-b from-primary/10 to-accent/10 p-4 border-r border-accent/10 flex flex-col justify-center">
+                             <div className="text-accent font-bold text-base mb-3 flex items-center gap-2">
+                               <Award className="w-4 h-4 text-accent" />
+                               Certificate Programs
+                             </div>
+                             <div className="space-y-0">
+                               <Link href="/training/certificate-programs" onClick={() => setActiveSubmenu(null)} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-primary hover:bg-accent/10 transition text-base ${pathname === '/training/certificate-programs' ? 'bg-accent/20 text-accent' : ''}`}>
+                                 <BookOpen className="w-4 h-4" />
+                                 Certificate Programs
+                               </Link>
+                               <Link href="/training/people-analytics" onClick={() => setActiveSubmenu(null)} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-primary hover:bg-accent/10 transition text-base ${pathname === '/training/people-analytics' ? 'bg-accent/20 text-accent' : ''}`}>
+                                 <BarChart3 className="w-4 h-4" />
+                                 People Analytics
+                               </Link>
+                               <Link href="/training/digital-hr" onClick={() => setActiveSubmenu(null)} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-primary hover:bg-accent/10 transition text-base ${pathname === '/training/digital-hr' ? 'bg-accent/20 text-accent' : ''}`}>
+                                 <TrendingUp className="w-4 h-4" />
+                                 Digital HR
+                               </Link>
+                               <Link href="/training/business-partering" onClick={() => setActiveSubmenu(null)} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-primary hover:bg-accent/10 transition text-base ${pathname === '/training/business-partering' ? 'bg-accent/20 text-accent' : ''}`}>
+                                 <Target className="w-4 h-4" />
+                                 Business Partnering
+                               </Link>
+                               <Link href="/training/hr-essentials" onClick={() => setActiveSubmenu(null)} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-primary hover:bg-accent/10 transition text-base ${pathname === '/training/hr-essentials' ? 'bg-accent/20 text-accent' : ''}`}>
+                                 <Users className="w-4 h-4" />
+                                 HR Essentials
+                               </Link>
+                               <Link href="/training/full-academy" onClick={() => setActiveSubmenu(null)} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-primary hover:bg-accent/10 transition text-base ${pathname === '/training/full-academy' ? 'bg-accent/20 text-accent' : ''}`}>
+                                 <Sparkles className="w-4 h-4" />
+                                 Full Academy
+                               </Link>
+                             </div>
+                           </div>
+
+                           {/* Right column: Certificate Programs List */}
+                           <div className="w-2/3 p-4">
+                            <div className="space-y-3">
+                              {certificatePrograms.categories.map((category, index) => (
+                                <div key={index}>
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <category.icon className="w-3 h-3 text-accent" />
+                                    <h3 className="font-semibold text-primary text-xs">{category.title}</h3>
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-1">
+                                    {category.items.map((item, itemIndex) => (
+                                      <div
+                                        key={itemIndex}
+                                        className="flex items-center justify-between px-2 py-1.5 rounded-md bg-primary/5 text-primary/70 font-medium text-xs cursor-default"
+                                      >
+                                        <span>{item.name}</span>
+                                        {item.badge && (
+                                          <span className="text-xs font-semibold px-1.5 py-0.5 rounded-full bg-accent/20 text-accent capitalize">
+                                            {item.badge}
+                                          </span>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                  {index < certificatePrograms.categories.length - 1 && (
+                                    <hr className="my-2 border-accent/10" />
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mt-2 text-xs text-muted-foreground flex items-center gap-1">
+                              <span>In collaboration with</span>
+                              <Award className="w-3 h-3 text-accent" />
+                              <span className="font-medium">AIHR</span>
                             </div>
                           </div>
-                          {item.submenu?.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              prefetch={true}
-                              className={`block px-4 py-3 text-foreground hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 transition-all duration-200 border-l-4 border-transparent hover:border-accent group/item ${pathname === subItem.href ? "bg-accent/10 border-accent" : ""}`}
-                              suppressHydrationWarning
-                            >
-                              <div className="font-medium text-sm flex items-center">
-                                {subItem.name}
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 ml-2 opacity-0 group-hover/item:opacity-100 transition-opacity" viewBox="0 0 20 20" fill="currentColor">
-                                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                </svg>
-                              </div>
-                              <div className="text-xs text-muted-foreground mt-1">In collaboration with AIHR</div>
-                            </Link>
-                          ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </>
                 ) : (
                   <Link
                     href={item.href}
                     prefetch={true}
+                    onMouseEnter={() => setActiveSubmenu(null)}
                     className={`text-white/90 hover:text-white transition-all duration-300 font-medium text-sm py-2 px-4 rounded-xl hover:bg-white/5 ${pathname === item.href ? "bg-accent text-white" : ""}`}
                     suppressHydrationWarning
                   >
@@ -159,11 +262,11 @@ export function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.aihr.com/partner/hrmoffice/ " target="_blank" rel="noopener noreferrer">
               <Button className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                 <Award className="w-4 h-4 mr-2" />
                 <span>Get Certified</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg " className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </Button>
@@ -216,7 +319,7 @@ export function Header() {
                         <AnimatePresence>
                           {isMobileSubmenuOpen === item.name && (
                             <motion.div
-                              className="pl-6 space-y-1 mt-1"
+                              className="pl-4 space-y-0.5 mt-0.5"
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
@@ -227,7 +330,7 @@ export function Header() {
                                   key={subItem.name}
                                   href={subItem.href}
                                   prefetch={true}
-                                  className={`block px-4 py-2.5 text-white/80 hover:text-accent transition-colors rounded-lg hover:bg-white/5 ${pathname === subItem.href ? "bg-accent text-white" : ""}`}
+                                  className={`block px-3 py-2 text-white/80 hover:text-accent transition-colors rounded-md hover:bg-white/5 ${pathname === subItem.href ? "bg-accent text-white" : ""}`}
                                   onClick={() => {
                                     setIsOpen(false)
                                     setIsMobileSubmenuOpen(null)
@@ -236,7 +339,7 @@ export function Header() {
                                 >
                                   <div className="font-medium text-sm flex items-center">
                                     {subItem.name}
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg " className="h-3 w-3 ml-1.5" viewBox="0 0 20 20" fill="currentColor">
                                       <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                   </div>
@@ -261,7 +364,7 @@ export function Header() {
                   </div>
                 ))}
                 <div className="pt-4 px-2">
-                  <Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.aihr.com/partner/hrmoffice/ " target="_blank" rel="noopener noreferrer">
                     <Button className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white font-semibold rounded-xl py-3">
                       <Award className="w-4 h-4 mr-2" />
                       <span>Get Certified</span>

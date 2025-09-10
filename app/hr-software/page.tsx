@@ -19,6 +19,8 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react"
+import { ContactPopup } from "@/components/contact-popup"
 
 const softwareFeatures = [
   {
@@ -83,6 +85,8 @@ const benefits = [
 ]
 
 export default function HRSoftwarePage() {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -288,15 +292,25 @@ export default function HRSoftwarePage() {
               solution.
             </p>
             <div className="flex justify-center">
-              <Link href="/contact" className="flex items-center">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white">
-                  Contact us <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-white px-10 py-5 text-lg font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                onClick={() => setIsContactPopupOpen(true)}
+              >
+                <span className="flex items-center">
+                  Send a Message <ArrowRight className="w-6 h-6 ml-3" />
+                </span>
+              </Button>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Popup */}
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={() => setIsContactPopupOpen(false)}
+      />
     </div>
   )
 }
