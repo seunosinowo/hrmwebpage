@@ -13,6 +13,7 @@ const footerSections = [
       { name: "Blog & Insights", href: "/blog" },
       { name: "Certificate Programs", href: "/training/certificate-programs" },
       { name: "About Us", href: "/about" },
+      { name: "Contact", href: "/contact" },
     ],
   },
   {
@@ -22,6 +23,7 @@ const footerSections = [
       { name: "Recruitment", href: "/recruitment" },
       { name: "Outsourcing", href: "/outsourcing" },
       { name: "HR Software", href: "/hr-software" },
+      { name: "Business Functions", href: "/business-functions" },
     ],
   },
   {

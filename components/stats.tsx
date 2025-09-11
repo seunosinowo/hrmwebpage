@@ -5,28 +5,28 @@ import { Users, Award, Building, TrendingUp } from "lucide-react"
 
 const stats = [
   {
-    icon: Users,
-    number: "3500+",
-    label: "HR Professionals Certified",
-    description: "Through our AIHR partnership programs",
-  },
-  {
     icon: Building,
-    number: "300+",
-    label: "Companies Transformed",
+    number: "200+",
+    label: "Companies Served",
     description: "Across Nigeria and West Africa",
   },
   {
-    icon: Award,
-    number: "25+",
-    label: "Industry Awards",
-    description: "Recognition for excellence in HR services",
+    icon: Users,
+    number: "2K+",
+    label: "Professionals Trained",
+    description: "Through our comprehensive programs",
   },
   {
     icon: TrendingUp,
-    number: "95%",
-    label: "Client Retention Rate",
-    description: "Long-term partnerships built on trust",
+    number: "98%",
+    label: "Success Rate",
+    description: "Client satisfaction and program completion",
+  },
+  {
+    icon: Award,
+    number: "5+",
+    label: "Industry Awards",
+    description: "Recognition for excellence in HR services",
   },
 ]
 
