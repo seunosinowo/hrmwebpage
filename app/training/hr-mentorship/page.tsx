@@ -9,17 +9,22 @@ import { Textarea } from "@/components/ui/textarea"
 import { BookOpen, Star, TrendingUp, CheckCircle, Users, ExternalLink, X, Mail, Sparkles } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-
-const navigationItems = [
-  { title: "Certificate Programs", href: "/training/certificate-programs", icon: "Award" },
-  { title: "People Analytics", href: "/training/people-analytics", icon: "BarChart3" },
-  { title: "Digital HR", href: "/training/digital-hr", icon: "Monitor" },
-  { title: "Business Partnering", href: "/training/business-partering", icon: "Users" },
-  { title: "HR Mentorship", href: "/training/hr-mentorship", icon: "BookOpen", current: true },
-  { title: "Full Academy", href: "/training/full-academy", icon: "GraduationCap" },
-]
+import { usePathname } from "next/navigation"
 
 export default function HRMentorshipPage() {
+  const pathname = usePathname()
+
+  const navigationItems = [
+    { title: "Certificate Programs", href: "/training/certificate-programs", icon: "Award" },
+    { title: "People Analytics", href: "/training/people-analytics", icon: "BarChart3" },
+    { title: "Digital HR", href: "/training/digital-hr", icon: "Monitor" },
+    { title: "Business Partnering", href: "/training/business-partering", icon: "Users" },
+    { title: "HR Mentorship", href: "/training/hr-mentorship", icon: "BookOpen" },
+    { title: "Full Academy", href: "/training/full-academy", icon: "GraduationCap" },
+  ].map(item => ({
+    ...item,
+    current: pathname === item.href
+  }))
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +33,19 @@ export default function HRMentorshipPage() {
     agree: false
   })
   const [showSuccessPopup, setShowSuccessPopup] = useState(false)
+
+  // Function to get page title based on current path
+  const getPageTitle = (path: string) => {
+    const pathMap: { [key: string]: string } = {
+      '/training/certificate-programs': 'Certificate Programs',
+      '/training/people-analytics': 'People Analytics',
+      '/training/digital-hr': 'Digital HR',
+      '/training/business-partering': 'Business Partnering',
+      '/training/hr-mentorship': 'HR Mentorship',
+      '/training/full-academy': 'Full Academy',
+    }
+    return pathMap[path] || 'Training'
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -56,7 +74,7 @@ export default function HRMentorshipPage() {
           <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-4">
             <Link href="/training" className="hover:text-primary">Training</Link>
             <span>/</span>
-            <span className="text-foreground font-medium">HR Mentorship</span>
+            <span className="text-foreground font-medium">{getPageTitle(pathname)}</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {navigationItems.map((item) => (

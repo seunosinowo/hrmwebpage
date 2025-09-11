@@ -5,6 +5,7 @@ import { Suspense } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
+import { GlobalLoadingSpinner } from "@/components/loading"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -44,11 +45,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <Suspense fallback={
-          <div className="flex items-center justify-center min-h-screen bg-background">
-            <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-          </div>
-        }>
+        <Suspense fallback={<GlobalLoadingSpinner />}>
           <Header />
           <main>{children}</main>
           <Footer />

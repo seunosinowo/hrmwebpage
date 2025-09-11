@@ -13,7 +13,7 @@ const navigationItems = [
   { title: "People Analytics", href: "/training/people-analytics", icon: "BarChart3" },
   { title: "Digital HR", href: "/training/digital-hr", icon: "Monitor", current: true },
   { title: "Business Partnering", href: "/training/business-partering", icon: "Users" },
-  { title: "HR Essentials", href: "/training/hr-essentials", icon: "BookOpen" },
+  { title: "HR Mentorship", href: "/training/hr-mentorship", icon: "BookOpen" },
   { title: "Full Academy", href: "/training/full-academy", icon: "GraduationCap" },
 ]
 
