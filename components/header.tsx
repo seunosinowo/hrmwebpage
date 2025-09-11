@@ -111,19 +111,30 @@ export function Header() {
                     <AnimatePresence>
                       {activeSubmenu === item.name && (
                         <motion.div
-                          className="absolute top-full left-0 mt-3 w-[940px] bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 overflow-hidden grid grid-cols-4"
+                          className="absolute top-full left-0 mt-3 w-[940px] bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 overflow-hidden"
                           initial={{ opacity: 0, y: -10, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
                         >
-                          {/* Column 1: Main Menu */}
-                          <div className="p-5 border-r border-accent/10">
-                            <div className="text-accent font-bold text-sm mb-4 flex items-center gap-2">
-                              <Award className="w-4 h-4" />
-                              Training & Certification
+                          <div className="grid grid-cols-4">
+                            {/* Column 1: Main Menu Heading */}
+                            <div className="p-5 border-r border-accent/10">
+                              <div className="text-accent font-bold text-sm mb-4 flex items-center gap-2">
+                                <Award className="w-4 h-4" />
+                                Training & Certification
+                              </div>
                             </div>
-                            <nav className="space-y-1">
+                            {/* Header spanning columns 2-4 */}
+                            <div className="p-5 border-r border-accent/10 col-span-3 text-center">
+                              <h2 className="font-bold text-primary text-xl flex items-center justify-center gap-2">
+                                <BookOpen className="w-5 h-5 text-accent" />
+                                Certificate Programs
+                              </h2>
+                            </div>
+                            {/* Column 1: Main Menu List */}
+                            <div className="p-5 border-r border-accent/10 col-span-1">
+                              <nav className="space-y-1">
                               {item.submenu?.map((sub) => (
                                 <Link
                                   key={sub.href}
@@ -146,52 +157,41 @@ export function Header() {
                           </div>
 
                           {/* Column 2: Certificate Programs */}
-                          <div className="p-5 border-r border-accent/10">
-                            <div className="flex items-center gap-2 mb-3">
-                              <BookOpen className="w-4 h-4 text-accent" />
-                              <h3 className="font-bold text-primary text-lg">Certificate Programs</h3>
-                            </div>
+                          <div className="p-5 border-r border-accent/10 col-span-1">
                             <ul className="space-y-4 text-base">
-                              <li className="flex items-center gap-2"><BarChart3 className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/people-analytics-certificate/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">People Analytics</Link></li>
-                              <li className="flex items-center gap-2"><UserCog className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/hr-leadership-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Manager</Link></li>
-                              <li className="flex items-center gap-2"><HeartHandshake className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/diversity-equity-inclusion-belonging-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Diversity & Inclusion</Link></li>
-                              <li className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/organizational-development-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Organizational Development</Link></li>
-                              <li className="flex items-center gap-2"><Search className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/sourcing-recruitment-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Sourcing & Recruitment</Link></li>
+                              <li className="flex items-center gap-2"><BarChart3 className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">People Analytics</Link></li>
+                              <li className="flex items-center gap-2"><UserCog className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Manager</Link></li>
+                              <li className="flex items-center gap-2"><HeartHandshake className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Diversity & Inclusion</Link></li>
+                              <li className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Organizational Development</Link></li>
+                              <li className="flex items-center gap-2"><Search className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Sourcing & Recruitment</Link></li>
                             </ul>
                           </div>
 
                           {/* Column 3: Specializations */}
-                          <div className="p-5 border-r border-accent/10">
-                            <div className="flex items-center gap-2 mb-3">
-                              <Brain className="w-4 h-4 text-accent" />
-                              <h3 className="font-bold text-primary text-lg">Specializations</h3>
-                            </div>
+                          <div className="p-5 border-r border-accent/10 col-span-1">
                             <ul className="space-y-4 text-base">
-                              <li className="flex items-center gap-2"><Users className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/hr-generalist-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Generalist</Link></li>
-                              <li className="flex items-center gap-2"><Target className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/hr-business-partner-certificate/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Business Partner 2.0</Link></li>
-                              <li className="flex items-center gap-2"><LineChart className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/hr-metrics-reporting/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Metrics & Dashboarding</Link></li>
-                              <li className="flex items-center gap-2"><UserPlus className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/talent-acquisition-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Strategic Talent Acquisition</Link></li>
-                              <li className="flex items-center gap-2"><Bot className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/artificial-intelligence-for-hr-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Artificial Intelligence for HR</Link></li>
+                              <li className="flex items-center gap-2"><Users className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Generalist</Link></li>
+                              <li className="flex items-center gap-2"><Target className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Business Partner 2.0</Link></li>
+                              <li className="flex items-center gap-2"><LineChart className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Metrics & Dashboarding</Link></li>
+                              <li className="flex items-center gap-2"><UserPlus className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Strategic Talent Acquisition</Link></li>
+                              <li className="flex items-center gap-2"><Bot className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Artificial Intelligence for HR</Link></li>
                             </ul>
                           </div>
 
                           {/* Column 4: Academy & New */}
-                          <div className="p-5 bg-gradient-to-b from-primary/5 to-accent/5">
-                            <div className="flex items-center gap-2 mb-3">
-                              <Sparkles className="w-4 h-4 text-accent" />
-                              <h3 className="font-bold text-primary text-lg">Academy</h3>
-                            </div>
+                          <div className="p-5 border-r border-accent/10 col-span-1">
                             <ul className="space-y-4 text-base">
-                              <li className="flex items-center gap-2"><Cpu className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/digital-hr-certificate/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Digital HR 2.0</Link></li>
-                              <li className="flex items-center gap-2"><DollarSign className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/compensation-benefits-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Compensation & Benefits</Link></li>
-                              <li className="flex items-center gap-2"><GraduationCap className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/learning-development-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Learning & Development</Link></li>
-                              <li className="flex items-center gap-2"><ChartNetwork className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/talent-management-certificate/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Talent Management & Succession Planning</Link></li>
-                              <li className="flex items-center gap-2"><UserCheck className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/courses/hr-coordinator-certification/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Coordinator</Link></li>
+                              <li className="flex items-center gap-2"><Cpu className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Digital HR 2.0</Link></li>
+                              <li className="flex items-center gap-2"><DollarSign className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Compensation & Benefits</Link></li>
+                              <li className="flex items-center gap-2"><GraduationCap className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Learning & Development</Link></li>
+                              <li className="flex items-center gap-2"><ChartNetwork className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">Talent Management & Succession Planning</Link></li>
+                              <li className="flex items-center gap-2"><UserCheck className="w-3 h-3 text-primary/60" /><Link href="https://www.aihr.com/partner/hrmoffice/" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-accent">HR Coordinator</Link></li>
                             </ul>
                             <div className="mt-4 text-xs text-muted-foreground flex items-center gap-1">
                               <Award className="w-3 h-3 text-accent" />
                               <span>Official AIHR Certified Partner</span>
                             </div>
+                          </div>
                           </div>
                         </motion.div>
                       )}
