@@ -31,12 +31,12 @@ export function Partnership() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Certified <span className="text-primary">AIHR Partner</span> in Nigeria
+              Certified <span className="text-primary">AIHR Partner</span>
             </h2>
 
             <p className="text-xl text-muted-foreground mb-8 text-pretty leading-relaxed">
               As an official AIHR Certified Partner, we bring world-class HR education and certification programs
-              directly to Nigerian professionals. Our partnership ensures you receive the same high-quality training
+              directly to HR Professionals across Africa. Our partnership ensures you receive the same high-quality training
               that&apos;s trusted by HR leaders globally.
             </p>
 
