@@ -15,6 +15,7 @@ const values = [
     title: "Professionalism",
     description: "We are reliable in following global best practices and guided by high ethical standards and we promote same in our client organisations.",
   },
+  // 
   {
     icon: CheckCircle,
     title: "Responsibility",
