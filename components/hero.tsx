@@ -9,14 +9,14 @@ import Image from "next/image"
 export function Hero() {
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/95 via-primary to-primary/90">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
+            opacity: [0.3, 0.5, 0.3],
           }}
           transition={{
             duration: 8,
@@ -24,7 +24,32 @@ export function Hero() {
             ease: "easeInOut"
           }}
         />
-        {/* ...other animated background elements... */}
+        <motion.div 
+          className="absolute top-3/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.div 
+          className="absolute top-1/2 right-1/3 w-32 h-32 bg-accent/10 rounded-full blur-2xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.4, 0.6, 0.4],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: 4
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
@@ -37,7 +62,7 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.div
-              className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm text-white mb-6"
+              className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm text-primary mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -47,7 +72,7 @@ export function Hero() {
             </motion.div>
 
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 text-balance leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -56,7 +81,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl text-pretty"
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl text-pretty"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -79,7 +104,7 @@ export function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-primary bg-white/10 backdrop-blur-sm px-8 py-6 text-base font-medium rounded-xl"
+                  className="border-primary/30 text-primary hover:bg-primary hover:text-white bg-primary/5 px-8 py-6 text-base font-medium rounded-xl"
                 >
                   Learn More
                 </Button>
@@ -88,7 +113,7 @@ export function Hero() {
 
             {/* Stats */}
             <motion.div
-              className="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20"
+              className="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
@@ -97,15 +122,15 @@ export function Hero() {
                 <div className="text-2xl md:text-3xl font-bold text-accent mb-1 flex items-center justify-center lg:justify-start">
                   <Target className="w-5 h-5 mr-2" /> 200+
                 </div>
-                <div className="text-white/80 text-sm">Companies Served</div>
+                <div className="text-gray-600 text-sm">Companies Served</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-2xl md:text-3xl font-bold text-accent mb-1">2K+</div>
-                <div className="text-white/80 text-sm">Professionals Trained</div>
+                <div className="text-gray-600 text-sm">Professionals Trained</div>
               </div>
               <div className="text-center lg:text-left col-span-2 lg:col-span-1 mx-auto lg:mx-0">
                 <div className="text-2xl md:text-3xl font-bold text-accent mb-1">98%</div>
-                <div className="text-white/80 text-sm">Success Rate</div>
+                <div className="text-gray-600 text-sm">Success Rate</div>
               </div>
             </motion.div>
           </motion.div>
@@ -166,7 +191,7 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.6 }}
       >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center backdrop-blur-sm">
+        <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
           <motion.div
             className="w-1.5 h-3 bg-accent rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}

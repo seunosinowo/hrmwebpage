@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   transpilePackages: ['framer-motion'],
-  output: 'export',
+  // output: 'export', // Disabled to enable API routes and server-side features
   trailingSlash: true,
   images: {
     domains: [],

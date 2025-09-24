@@ -58,20 +58,20 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
         {/* Hero Section */}
-      <section className="relative py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/90 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/50 rounded-full blur-3xl"></div>
+      <section className="relative py-10 bg-white overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">Get In Touch</Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/30">Get In Touch</Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 text-balance">
                 Let's Transform Your <span className="text-accent">HR Operations</span> Together
               </h1>
-              <p className="text-xl text-white/90 mb-8 text-pretty">
+              <p className="text-xl text-gray-600 mb-8 text-pretty">
                 Ready to take your HR to the next level? Contact our team of experts to discuss your needs and discover
                 how we can help your organization thrive.
               </p>
@@ -82,7 +82,7 @@ export default function ContactPage() {
                   </Button>
                 </Link>
                 <Link href="#location">
-                  <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
+                  <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-white bg-primary/5">
                     Map Address <MapPin className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
@@ -118,7 +118,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">Send Message</Badge>
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/30">Send Message</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">
                 Get In Touch With Our Experts
               </h2>
